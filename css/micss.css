@@ -1,0 +1,520 @@
+.menu1{
+box-shadow: 1px 0 5px #333;
+border-right: 5px solid #cdcdcd;
+background: #D9D9D9;
+text-align: center;
+
+}
+
+.menu1 h2{
+	margin: 5px  auto  30px auto;
+	color: #020202 ;
+}
+
+.elemento_menu1{
+height: 55px;
+width: 55px;
+background: #ccc;
+opacity: 0.92;
+
+}
+
+
+.elemento_pagina{
+height: 100px;
+width: 100px;
+background: blue;
+
+
+}
+
+.elemento_menu1:hover{
+cursor:move;
+
+}
+
+
+
+.pagina{
+width: 900px;
+height: 450px;
+margin : auto;
+border: 1px solid #999;
+background-color:  #D6DBE1;
+position: relative;
+box-shadow: 0 0 33px #666;
+}
+
+
+/** manejo de drop **/
+.drop-hover{
+
+background-color:#E0E0E0;
+
+
+}
+
+
+
+/***********************************/
+
+
+
+
+/***
+los handles 
+para de los cuadritos 
+**
+***/
+
+.ui-resizable-ne {
+	outline: 1px solid #669;
+	cursor: ne-resize;
+	width: 8px;
+	background: #fff;
+	height: 8px;
+	right: -7px;
+	top: -7px;
+	border-radius: 0;
+}
+
+
+.ui-resizable-se {
+	outline: 1px solid #669;
+	cursor: se-resize;
+	width: 8px;
+	background: #fff;
+	height: 8px;
+	right: -7px;
+	bottom: -7px;
+	border-radius: 0;
+}
+
+
+.ui-resizable-sw {
+	outline: 1px solid #669;
+	cursor: sw-resize;
+	width: 8px;
+	background: #fff;
+	height: 8px;
+	left: -7px;
+	bottom: -7px;
+	border-radius: 0;
+}
+
+
+
+.ui-resizable-nw {
+	outline: 1px solid #669;
+	cursor: nw-resize;
+	width: 8px;
+	background: #fff;
+	height: 8px;
+	left: -7px;
+	top: -7px;
+	border-radius: 0;
+}
+
+
+
+/***** 
+handles
+bordes rectangulos 
+*/
+
+ .ui-resizable-n{
+	border-top : 1px dashed #669;
+
+ }
+
+.ui-resizable-s{
+	border-bottom:  1px dashed #669;
+}
+
+
+.ui-resizable-w
+{
+	border-left:  1px dashed #669;
+
+}
+
+.ui-resizable-e{
+border-right:   1px dashed #669;
+
+}
+
+
+
+/*****
+
+elemento contenedor de elemento componente
+*/
+.padre_elemento
+{
+
+background: rgba(255,255,255,0.02);
+
+}
+
+
+
+/**************************************/
+
+
+/*#contextMenuItems */
+#herramientas_grupo_botones {
+	
+	display: inline-block;
+	position: absolute;
+	z-index: 1000;
+}
+
+#herramientas_grupo_botones .icon2 ,#botones_principales .icon2 {
+	border: 1px solid #635C5C;
+	display: block;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#FFFFFF),to(#BBC2F5));
+	background-image: -moz-linear-gradient(top,#FBFBFB,#ECECEC);
+	/*position: absolute;*/
+	width: 32px;
+	height: 32px;
+	border-radius: 6px;
+	margin: 5px;
+	padding: 0;
+	-webkit-transition: top .30s ease-in-out;
+	-moz-transition: top .30s ease-in-out;
+	 transition: top .30s ease-in-out; 
+	box-shadow: 2px 2px 4px grey;
+	overflow: hidden;
+	text-align: center;
+}
+
+
+.active_icons{
+	background: #635C5C !important;
+	opacity: 0.7;
+	color: black;
+}
+
+
+
+
+#herramientas_grupo_botones .icon2:hover  ,#botones_principales .icon2:hover{
+	cursor: pointer;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#BEBEBE),to(#BBC2F5));
+	background-image: -moz-linear-gradient(top,#AEAEAE,#ECECEC);
+	text-decoration: none;
+}
+
+
+ #herramientas_grupo_botones .main  {
+	width: 40px;
+	height: 40px;
+	margin: 0;
+	cursor: move !important;
+}
+
+#herramientas_grupo_botones .mi_icons ,#botones_principales .mi_icons{
+	font-size: 32px;
+	/* overflow: hidden; */
+	line-height: 0px;
+	
+}
+
+
+.mi_icons2{
+
+	font-size: 30px;
+	/* overflow: hidden; */
+	line-height: 30px;
+}
+
+
+
+/**** footer menu */
+.mi_footer{
+background-color: rgba(56,60,76,0.66);
+ position:fixed;
+   left:0px;
+   bottom:0px;
+   height:43px;
+   width:100%;
+
+
+}
+
+
+
+
+.pag_borde{
+ height: 3px;
+ background-color: rgba(31,35,48,0.43);
+ }
+
+.pag_transicion{
+ height: 40px;
+border: 1px solid rgba(31,35,48,0.43);
+}
+
+.pag_pag{
+ overflow-x: auto;
+ padding:5px; 
+ height:40px;
+}
+
+
+.botones_efectos_paginas{
+	height: 30px;
+	width: 40px;
+	cursor: pointer !important;
+	text-align: center;
+	font-size: 28px;
+	line-height: 1px;
+
+}
+
+
+.botones_efectos_paginas:hover{
+	background-color: #004080 !important;
+	
+}
+
+
+/*******************
+panel principal
+**/
+
+.panel_principal{
+	background-color: rgba(56,60,76,0.88);
+ 	position:fixed;
+   left:0px;
+   top:0px;
+   z-index: 1000;
+
+ 	height: 50px;
+ 
+ }
+
+ 
+ #botones_principales  .main {
+	width: 40px;
+	height: 40px;
+	margin: 5px 7px;
+
+	background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(3, 3, 7, 0.33)),to(#22253F));
+	background-image: -moz-linear-gradient(top,#22253F,#22253F);
+	color: #F7F7F4;
+	
+}
+
+
+
+
+ 
+#fila_1panel .button {
+	width:  55px;
+	height: 55px;
+	color: #fff;
+	text-align: center;
+	font-size: 10px;
+	line-height: 50px;
+	float: left;
+	margin-right: 10px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 60px;
+	border-radius: 70px;
+	-moz-box-shadow: 2px 3px 5px #bfbfbf;
+	-webkit-box-shadow: 2px 3px 5px #bfbfbf;
+	box-shadow: 2px 3px 5px #bfbfbf;
+	overflow:hidden;
+	padding:1px;
+}
+ 
+ 
+#fila_1panel .button p {
+	font-size: 12px;
+	line-height: 50px;
+ 
+}
+ 
+
+#fila_1panel .button:hover {
+	-moz-box-shadow:inset 0 0 30px #444;
+	-webkit-box-shadow:inset 0 0 30px #444;
+	box-shadow:inset 0 0 30px #444;
+}
+
+
+
+/************** botone de preseciona 1 ********/
+#botones_presentacion_p1 {
+	
+	display: inline-block;
+	margin-left: 40%;
+
+
+}
+
+.contenedor_principal
+{
+	padding-top: 60px;
+	padding-bottom: 10px;
+}
+
+
+.mi_footer ul.pagination {
+height: initial;
+
+}
+
+
+
+/**********texto para introducir *************/
+[data-tipo='textarea'] .sombra{
+	background:rgba(255,255,255,0.1); 
+	height:100%; 
+	width:100%;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+
+[data-tipo='textarea'] .text{
+	background:transparent; 
+	height:100%; 
+	width:100%;
+	resize: none;
+	border: none;
+	overflow: hidden;
+
+}
+
+
+#herramientas_grupo_botones .panel_grupo_botones{
+
+	position: absolute;
+	top: 50px;
+	left: -50px;
+	background-color: #F4F4F4;
+	padding: 2px;
+	box-shadow: 2px 2px 4px grey;
+	border: 1px solid #999;
+	border-radius: 5px;
+	/*width: 100px;*/
+	height: auto;
+	width: 200px;
+	
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#FFFFFF),to(#BBC2F5));
+	background-image: -moz-linear-gradient(top,#FBFBFB,#ECECEC);
+}
+
+#herramientas_grupo_botones .panel_grupo_botones:hover{
+	
+}
+
+#panel_editar_letras td{
+	 padding: 0px;
+	font-size: 0.875rem;
+	color: #61606D; 
+	border: none;
+	border-color: none;
+	text-align: center;
+}
+
+
+
+.sp-cancel {
+background-color: #eeeeee;
+background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+background-image: linear-gradient(to bottom, #eeeeee, #cccccc);
+border: 1px solid #ccc;
+border-bottom: 1px solid #bbb;
+border-radius: 3px;
+color: #6D6565;
+font-size: 10px;
+line-height: 1;
+padding: 5px 4px;
+text-align: center;
+text-shadow: 0 1px 0 #eee;
+vertical-align: middle;
+/* width: 20px; */
+color:#484750 !important;
+}
+
+.sp-choose{
+	margin-bottom: 0px;
+	color:#484750;
+	font-size: 11px !important;
+	padding: 6px 4px !important;
+}
+
+.sp-cancel:hover {
+color: #67697C !important;
+text-decoration: initial;
+}
+
+
+
+ 
+#panel_editar_letras tbody>tr:nth-child(odd),#panel_editar_letras tbody>tr:nth-child(even){
+   
+	background-color: #F5F5F5;
+	height: 30px;
+}
+
+#panel_tipo_letra{
+
+	height: 20px;
+}
+
+.sp-container {
+	border-radius: 0;
+	background-color: #ECECEC;
+	border: solid 1px #B3B3B3;
+	padding: 0;
+}
+
+
+#panel_tipo_color{
+
+	height: 20px;
+	margin: 2px auto;
+}
+
+#panel_editar_letras .letras_alineacion{
+	font-size: 30px;
+	margin: 0px;
+	color: #61606D;
+	cursor:pointer;
+}
+
+#panel_editar_letras .letras_alineacion:hover{
+	background-color: rgba(74,79,91,0.09);
+}
+
+#panel_editar_letras .active_letra{
+
+	background-color: rgba(74,79,91,0.6) !important;
+}
+
+
+/************cambios fundaccion ************/
+input[type="file"], input[type="checkbox"], input[type="radio"], select {
+margin: 0 0 1px 0; 
+}
+
+
+
+
+
+/********** bocadilloo ***********/
+.bocadillo1{
+	background-image: url(../img/b1.png) !important;
+    background-size: 100% !important;
+    background-repeat: no-repeat no-repeat;
+    background-size: 100% 100% !important;
+}

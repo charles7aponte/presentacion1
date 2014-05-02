@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="icons/foundation-icons.css" />
+    <link rel='stylesheet' href='css/spectrum.css' />
+    <link href="css/overcast/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/micss.css" />
+   
+  
+
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <!-- panel  principal -->
+    <div class="row panel_principal">
+
+
+      <!-- class1-->
+      <div class="medium-12 large-12 columns">
+        
+        <!-- final 1 panel prinpla -->
+        <div class="row" id="fila_1panel">
+          <div class="medium-8 large-8 columns">
+
+            <div id="botones_presentacion_p1">
+              <div class="button" style="background-color: #00ab26">
+                  <p>Escenarios</p>
+              </div>
+               
+                <div class="button" style="background-color: #d90004">
+                  <p>Personajes</p>
+                </div>
+
+                 <div class="button" style="background-color: #121D38">
+                  <p>Texto</p>
+                </div>
+
+                 <div class="button" style="background-color: #D37621">
+                  <p>Imagenes</p>
+                </div>
+
+                 <div class="button" style="background-color: #31C828">
+                  <p>Marcos</p>
+                </div>
+            </div>
+          </div>  
+            
+          <div class="medium-3 large-3 columns">
+             <ul  id="botones_principales" class="button-group [radius round]"> 
+              
+
+              <li>
+                <a  class="main icon2 " title="abrir" alt="abrir">
+                   <i class="mi_icons fi-folder size-60"></i>
+                </a>
+              </li> 
+
+              <li>
+                <a  class="main icon2 " title="guardar" alt="guardar">
+                   <i class="mi_icons step fi-save size-60"></i>
+                </a>
+              </li>
+
+              <li>
+                <a  class=" main icon2 " title="presentacion" alt="presentacion">
+                   <i class="mi_icons fi-play-circle size-60"></i>
+                </a>
+              </li>
+
+               
+            </ul>            
+          </div> 
+
+        </div><!-- finla final 1 panel prinpla -->
+        
+        <!-- final 2 panel prinpla -->
+        <div class="row">
+        
+        </div><!-- fin final 2 panel prinpla -->
+
+     </div><!-- class 1 -->
+      
+    </div>
+    <!-- fin del panel principa -->
+    
+
+
+    <div class="row " style="background:#F8F8F8" data-equalizer>
+
+      <!-- menu de componentes -->
+      <div class="medium-3 large-3 columns menu1 " data-equalizer-watch>
+        <h2>Elementos</h2>
+          <div class="row" >
+              <div class="large-12 columns" >
+                <table style="width:100%">
+                  <thead>
+
+                    <tr>
+                      <th>
+                        <div class="elemento_menu1" data-elemento="<div  data-tipo='textarea' style='height:100px ; width:100px'  >
+
+                          <div style='overflow:hidden; height:100% ; width:100%'> <textarea  class='text bocadillo1'   
+                                onblur='noeditarBlur(this)' >Texto</textarea></div>
+                          
+                          <div  class='sombra' ondblclick='editarTexto(this)'></div></div>"></div>
+                      </th>
+                      
+                      <th>
+                        <div class="elemento_menu1" data-elemento="<div  width='200'  data-tipo='tipo1' style='background:white;height:100px ; width:100px'  ><div class='elemento_pagina'     style='background:red; height:100% ; width:100%'  ></div></div>"></div>
+                      </th>
+
+                      <th><div class="elemento_menu1" data-elemento="<div  data-tipo='imagen' style='background:white;height:100px ; width:100px' ><img src='img/m1.png' class='elemento_pagina'  width='100%'   height='100%' style='height:100% ; width:100%' ></div>"></div></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:rgb(79,13,12)' height='200' alt=''>" id="e1"></div></td>
+                      <td><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:rgb(33,23,32)' height='200' alt=''>" id="e2"></div></td>
+                      <th><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:blue' height='200' alt=''>" id="e3"></div></th>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+          </div>
+      </div><!--   fin del componente menu 1-->
+
+
+      <!-- CONTENDOR DE PAGINA ACTUAL -->
+      <div  id="contenedor_paginas" class="medium-9 large-9 columns contenedor_principal" data-equalizer-watch >
+
+        <h1></h1>
+
+        <!-- herramienta -->
+           <ul id="herramientas_grupo_botones" class=" button-group [radius round]"> 
+              
+              <li>
+                
+                <div id="panel_editar_letras"  style="display:none" class="panel callout radius panel_grupo_botones">
+                 
+                 <table style="width: 100%">
+                  <thead>
+                    <tr>
+                      <th width="10"></th>
+                      <th width="70"></th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Color</td>
+                      <td><input type="text" id="panel_tipo_color" ></td>
+                    
+                    </tr>
+
+                    <tr>
+                      <td>Tamaño</td>
+                      <td><input type="text" readonly id="spinner" style="font-size:14px; padding:0px; margin:0px ; height:22px"></td>
+                    </tr>
+
+                    <tr>
+                      <td>font</td>
+                      <td><select style="padding: 0;" name="" id="panel_tipo_letra">
+                        <option value="mi_comic_san">comic san</option>
+                        <option value="cursive">cursive</option>
+                        <option value="fantasy">fantasy</option>
+                        <option value="mi_HORNSWOG">hornswog</option>
+                        <option value="mi_Kalocsai_Flowers">Kalocsai Flowers</option>
+                         <option value="mi_KaushanScript-Regular">KaushanScript Regular</option>
+
+                         <option value="monospace">monospace</option>
+                         <option value="san-serif">san-serif</option>
+                      </select></td>
+                    </tr>
+
+                    <tr>
+                      <td>style</td>
+                      <td>
+                        <table style="width: 100%">
+                          <tr>
+                            <td><p class="fi-bold letras_alineacion"  id="panel_letras_bold" data-propiedad="font-weight" data-descativo="none" data-activo="bold"></p></td>
+                            <td><p class="fi-italic letras_alineacion"  id="panel_letras_cursiva" data-propiedad="font-style" data-descativo="none" data-activo="italic"></p></td>
+                            <td><p class="fi-underline letras_alineacion"  id="panel_letras_subrayado" data-propiedad="text-decoration" data-descativo="none" data-activo="underline"></p></td>
+                          </tr>
+
+                          <tr>
+                            <td><p class="fi-align-center letras_alineacion"  id="panel_letras_center" data-propiedad="text-align"  data-activo="center" ></p></td>
+
+                            <td><p class="fi-align-left letras_alineacion"  id="panel_letras_left" data-propiedad="text-align" data-descativo="none" data-activo="left" ></p></td>
+
+                            <td ><p class="fi-align-right letras_alineacion"  id="panel_letras_right" data-propiedad="text-align" data-descativo="none" data-activo="right"></p></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+              </li>
+
+
+              <li>
+                <a id="boton_color_grupo"   style="display:none"  class=" icon2 " title="editar letra" alt="editar letra">
+                   <i class="mi_icons fi-background-color size-60"></i>
+                </a>                
+              </li>
+
+
+              <li>
+                <a id="boton_delete_grupo"    class=" icon2 " title="eliminar" alt="eliminar">
+                   <i class="mi_icons fi-x-circle size-60"></i>
+                </a>
+              </li> 
+
+              <li>
+                <a id="boton_capa" class=" icon2" title="capas" alt="capas">
+                  <i class="mi_icons2  fi-comments "></i>
+                </a>
+                  
+                  <ul id="subgrupo_botones_boton_capa" class="button-group [radius round]" style="width:40px"> 
+                      <li>
+                        <a id="subgrupo_botones_boton_capa1"  onclick="elegirCapa(1)" class="icon2" title="eliminar" alt="eliminar">
+                           <i class="mi_icons2">1</i>
+                        </a>
+                      </li> 
+ 
+                      <li>
+                        <a id="subgrupo_botones_boton_capa2"  onclick="elegirCapa(2)" class=" icon2 " title="eliminar" alt="eliminar">
+                           <i class="mi_icons2 ">2</i>
+                        </a>
+                      </li> 
+
+                      <li>
+                        <a id="subgrupo_botones_boton_capa3" onclick="elegirCapa(3)" class=" icon2 " title="eliminar" alt="eliminar">
+                           <i class="mi_icons2 ">3</i>
+                        </a>
+                      </li> 
+                  </ul>
+              </li> 
+
+
+              <li>
+                <a id="herramientas_grupo" class=" main icon2 "  style="curso:move" title="" alt="">
+                  <i class="mi_icons step fi-widget " style="font-size: 35px;"></i>
+                </a>
+              </li> 
+          </ul>
+          <!--fin  herramienta -->
+            
+
+
+        <div class="pagina" id="pagina0">
+
+          
+        </div><!-- fin de .paigna--> 
+      </div>
+
+    </div><!-- seccion edicion de contendio -->
+
+    
+
+    <!-- menu 2 de paginas -->
+    <div class="row mi_footer">
+      <div class="large-12 columns "> 
+        <!-- borde menu2 pagina  -->
+        <div class="row pag_borde">
+
+        </div>
+
+        <!-- efectos -->  
+        <div class="row pag_transicion" style="display: none">
+          
+        </div>
+        
+
+        <!-- paginacion y nueva pagina -->
+        <div class="row pag_pag">
+          <div class="large-2 columns "> 
+              <ul class="pagination">
+                <li class="current"><a href="" id="bton_pag_transicion" class="botones_efectos_paginas  step fi-page-export" onclick="return false "  ></a></li>
+                <li class="current"><a href=""   id="bton_pag_nueva" class="botones_efectos_paginas step fi-page-add size-21 " onclick="return false " ></a></li>
+            </ul>
+          </div>
+
+          <div class="large-10 columns ">      
+             <ul class="pagination" id="html_mi_paginacion_paginas">
+             
+            </ul>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+      
+
+
+
+
+    </div>
+
+
+
+
+    
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+      <script src='js/spectrum.js'></script>
+  
+    <script src="js/paginas.js"></script>
+    <script src="js/miJs.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
