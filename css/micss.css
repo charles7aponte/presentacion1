@@ -12,11 +12,13 @@ text-align: center;
 }
 
 .elemento_menu1{
-height: 55px;
-width: 55px;
-background: #ccc;
-opacity: 0.92;
-
+	height: 70px;
+	width: 70px;
+	background: #ccc;
+	opacity: 0.92;
+	margin: 5px auto;
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 
@@ -512,9 +514,41 @@ margin: 0 0 1px 0;
 
 
 /********** bocadilloo ***********/
+
+tr[data-fila] label
+{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.imagen_fondo{
+    background-repeat: no-repeat no-repeat;
+    background-size: 100% 100% !important;
+
+}
+
 .bocadillo1{
 	background-image: url(../img/b1.png) !important;
     background-size: 100% !important;
     background-repeat: no-repeat no-repeat;
     background-size: 100% 100% !important;
+}
+
+
+
+/******************** personajes *****************/
+.nombre_personaje{
+	font-family: mi_comic_san;
+	font-size: 16px;
+	position: absolute;
+	top: -28px;
+	color: #4A4D5C;
+	font-weight: bold;
+	left: 35%;
+
+}
+
+.radios-personajes
+{
+	border-radius: 100px;
 }

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="icons/foundation-icons.css" />
     <link rel='stylesheet' href='css/spectrum.css' />
     <link href="css/overcast/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css">
     
     <link rel="stylesheet" href="css/micss.css" />
    
@@ -93,10 +94,45 @@
     <div class="row " style="background:#F8F8F8" data-equalizer>
 
       <!-- menu de componentes -->
-      <div class="medium-3 large-3 columns menu1 " data-equalizer-watch>
+      <div class="medium-3 large-3 columns menu1 " style="overflow-x: auto" data-equalizer-watch>
         <h2>Elementos</h2>
           <div class="row" >
+            
+
               <div class="large-12 columns" >
+               
+               <!-- personajes -->
+               <div class="row">
+                 <div  style="width:120px; height:120px;  margin:10px auto;" class="flexslider radios-personajes">
+                    <ul class="slides">
+                     <li>
+                        <label  class="nombre_personaje" >Juan</label> 
+                        <img src="img/personajes/p1/c1.png" class="radios-personajes" />
+                      </li>
+                    
+                      <li>
+                          <label  class="nombre_personaje" >Enrique</label>
+                        <img src="img/personajes/p2/c1.png"  class="radios-personajes" />
+                       
+                      </li>
+                      <li>
+                         <label  class="nombre_personaje" >Maria</label>
+                        <img src="img/personajes/p3/c1.png"  class="radios-personajes"/>                        
+                      </li>
+
+                       <li>
+                         <label  class="nombre_personaje" >Madara</label>
+                        <img src="img/personajes/p4/c1.png"  class="radios-personajes"/>                        
+                      </li>
+
+                    </ul>                  
+                  </div><!--- eleccion de personaje-->
+               </div>   
+
+               <div style="width:100%; 
+                          height: 270px;
+                          overflow-y: auto;
+                          margin-top: 20px;"> 
                 <table style="width:100%">
                   <thead>
 
@@ -111,23 +147,114 @@
                       </th>
                       
                       <th>
-                        <div class="elemento_menu1" data-elemento="<div  width='200'  data-tipo='tipo1' style='background:white;height:100px ; width:100px'  ><div class='elemento_pagina'     style='background:red; height:100% ; width:100%'  ></div></div>"></div>
+                        <div class="elemento_menu1" data-elemento="<div  width='200'  data-tipo='tipo1' style='background:white;height:100px ; width:100px'  ><div class='elemento_pagina'     style='background:red; height:100% ; width:100%'  ></div></div>">
+                        </div>
                       </th>
 
-                      <th><div class="elemento_menu1" data-elemento="<div  data-tipo='imagen' style='background:white;height:100px ; width:100px' ><img src='img/m1.png' class='elemento_pagina'  width='100%'   height='100%' style='height:100% ; width:100%' ></div>"></div></th>
                     </tr>
                   </thead>
+
                   <tbody>
-                    <tr>
-                      <td><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:rgb(79,13,12)' height='200' alt=''>" id="e1"></div></td>
-                      <td><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:rgb(33,23,32)' height='200' alt=''>" id="e2"></div></td>
-                      <th><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:blue' height='200' alt=''>" id="e3"></div></th>
+                    <!-- persona 1 -->
+                    <tr data-filapersonaje="p1" >
+                        <th>
+                        <div class="elemento_menu1 imagen_fondo"
+                         style="background-image: url(img/personajes/p1/c1.png); " 
+                         data-elemento="<div   data-tipo='tipo1' 
+                        class='imagen_fondo'
+                        style='background:url(img/personajes/p1/cuerpo1.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                        <label></label></div>
+                      </th>
+                      
+                      <th>
+                        <div class="elemento_menu1 imagen_fondo"
+                         style="background-image: url(img/personajes/p1/c2.png); " 
+                         data-elemento="<div   data-tipo='tipo1' 
+                        class='imagen_fondo'
+                        style='background:url(img/personajes/p1/cuerpo2.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                        <label></label></div>
+                      </th>
+                    </tr>
+
+                     <tr data-filapersonaje="p1">
+                        <th>
+                        <div class="elemento_menu1 imagen_fondo"
+                         style="background-image: url(img/personajes/p1/c2.png); " 
+                         data-elemento="<div   data-tipo='tipo1' 
+                        class='imagen_fondo'
+                        style='background:url(img/personajes/p1/cuerpo2.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                       </div>
+                        <label class="label_estado_personaje">FELIZ</label>
+                      </th>
+                      
+                      <th>
+                        <div class="elemento_menu1 imagen_fondo"
+                         style="background-image: url(img/personajes/p1/c3.png); " 
+                         data-elemento="<div   data-tipo='tipo1' 
+                        class='imagen_fondo'
+                        style='background:url(img/personajes/p1/cuerpo3.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                          </div>
+                          <label class="label_estado_personaje">TRISTE</label>
+                         </th>
+                      </tr>  
+
+                    <tr data-filapersonaje="p1">
+                        <th>
+                        <div class="elemento_menu1 imagen_fondo"
+                         style="background-image: url(img/personajes/p1/c4.png); " 
+                         data-elemento="<div   data-tipo='tipo1' 
+                        class='imagen_fondo'
+                        style='background:url(img/personajes/p1/cuerpo4.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                        </div>
+                        <label class="label_estado_personaje">PENSATIVO</label>
+                       </th>
+                      
+                      <th>
+                        <div class="elemento_menu1 imagen_fondo"
+                         style="background-image: url(img/personajes/p1/c5.png); " 
+                         data-elemento="<div   data-tipo='tipo1' 
+                        class='imagen_fondo'
+                        style='background:url(img/personajes/p1/cuerpo5.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                        </div>
+                        <label class="label_estado_personaje">ASUSTADO</label>
+                      </th>
+                    </tr>
+
+                     <tr>
+                        <th>
+                        <div class="elemento_menu1 imagen_fondo"
+                         style="background-image: url(img/personajes/p1/c1.png); " 
+                         data-elemento="<div   data-tipo='tipo1' 
+                        class='imagen_fondo'
+                        style='background:url(img/personajes/p1/cuerpo1.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                       </div>
+                        <label class="label_estado_personaje">DESAFIANTE</label>
+                      </th>
+                      
+                      <th>                        
+                      </th>
+                    </tr><!-- fin de personaje 1-->
+
+
+
+
+
+
+
+                     <tr>
+                      <td><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:rgb(79,13,12)' height='200' alt=''>" id="e1"></div>
+                      <label>triste<label>
+                      </td>
+                      
+                      <td><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:rgb(33,23,32)' height='200' alt=''>" id="e2"></div>
+                        <label>triste<label>
+                        </td>
                     </tr>
                   </tbody>
                 </table>
-
-              </div>
-          </div>
+              </div><!-- fin de di  de personajes -->
+            </div><!-- .row contenedor de todos los personajes -->
+          </div><!-- fin classe columns 12-->
       </div><!--   fin del componente menu 1-->
 
 
@@ -313,11 +440,27 @@
     <script src="js/foundation.min.js"></script>
     <script src="js/jquery-ui-1.10.4.custom.js"></script>
       <script src='js/spectrum.js'></script>
+      <script src="js/jquery.flexslider.js"></script>
   
     <script src="js/paginas.js"></script>
     <script src="js/miJs.js"></script>
     <script>
       $(document).foundation();
+    
+       $('.flexslider').flexslider({
+        itemWidth:'20px'
+        ,animation: "fade"
+        ,slideshow:false
+        ,added: function(){
+          console.log("-----");
+        } 
+
+
+        , before:function(){
+          console.log("befor");
+        }
+       });
     </script>
   </body>
 </html>
+

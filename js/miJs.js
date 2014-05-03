@@ -433,7 +433,7 @@ $(document).mousedown(function(event) {
 **********************************/
 $(".elemento_menu1").draggable({
 	cursor:"move"
-	, cursorAt: { left:25,top:25 }
+	//, cursorAt: { left:25,top:25 }
 	,delay:1
 	,"helper": function(){
 		var $self=$(this);
