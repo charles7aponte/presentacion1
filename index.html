@@ -29,23 +29,23 @@
           <div class="medium-8 large-8 columns">
 
             <div id="botones_presentacion_p1">
-              <div class="button" style="background-color: #00ab26">
+              <div class="button active_button"  id="boton_esecenario_1" style="background-color: #00ab26" data-mipanel="panel_escenario">
                   <p>Escenarios</p>
               </div>
                
-                <div class="button" style="background-color: #d90004">
+                <div class="button" style="background-color: #d90004" data-mipanel="panel_personajes">
                   <p>Personajes</p>
                 </div>
 
-                 <div class="button" style="background-color: #121D38">
+                 <div class="button" style="background-color: #121D38" data-mipanel="panel_texto">
                   <p>Texto</p>
                 </div>
 
-                 <div class="button" style="background-color: #D37621">
+                 <div class="button" style="background-color: #D37621" data-mipanel="panel_imagenes">
                   <p>Imagenes</p>
                 </div>
 
-                 <div class="button" style="background-color: #31C828">
+                 <div class="button" style="background-color: #31C828" data-mipanel="panel_marcos">
                   <p>Marcos</p>
                 </div>
             </div>
@@ -100,162 +100,345 @@
             
 
               <div class="large-12 columns" >
+
+              <!-- panel escenario -->
+               <div class="row" data-seccion="panel_escenario">
+
+                  <div style="width: 100% ;">                    
+                    <label  class="label_estado_personaje" >Fondo Color</label>
+                    <input type="text" id="color_escenario">
+                   </div> 
+
+                  <div style="width: 100% ; height: 300px ; margin-top:10px ; overflow: auto">                    
+                    <label  class="label_estado_personaje" >Fondo Imagen</label>
+                    <table style="width: 100%">
+                       <tbody id="imagenes_fondo1">
+                        </tbody>
+                    </table>
+                   </div> 
+               </div> <!-- fin  panel escenario -->
+
+
                
                <!-- personajes -->
-               <div class="row">
+               <div class="row" data-seccion="panel_personajes">
+
                  <div  style="width:120px; height:120px;  margin:10px auto;" class="flexslider radios-personajes">
                     <ul class="slides">
-                     <li>
+                     <li data-personaje="p1" >
                         <label  class="nombre_personaje" >Juan</label> 
                         <img src="img/personajes/p1/c1.png" class="radios-personajes" />
                       </li>
                     
-                      <li>
+                      <li data-personaje="p2">
                           <label  class="nombre_personaje" >Enrique</label>
                         <img src="img/personajes/p2/c1.png"  class="radios-personajes" />
                        
                       </li>
-                      <li>
+
+                      <li data-personaje="p3">
                          <label  class="nombre_personaje" >Maria</label>
                         <img src="img/personajes/p3/c1.png"  class="radios-personajes"/>                        
                       </li>
 
-                       <li>
+                       <li data-personaje="p4">
                          <label  class="nombre_personaje" >Madara</label>
-                        <img src="img/personajes/p4/c1.png"  class="radios-personajes"/>                        
+                        <img src="img/personajes/p4/c1.png"  class="radios-personajes"/>                  
                       </li>
-
                     </ul>                  
                   </div><!--- eleccion de personaje-->
-               </div>   
-
-               <div style="width:100%; 
-                          height: 270px;
-                          overflow-y: auto;
-                          margin-top: 20px;"> 
-                <table style="width:100%">
-                  <thead>
-
-                    <tr>
-                      <th>
-                        <div class="elemento_menu1" data-elemento="<div  data-tipo='textarea' style='height:100px ; width:100px'  >
-
-                          <div style='overflow:hidden; height:100% ; width:100%'> <textarea  class='text bocadillo1'   
-                                onblur='noeditarBlur(this)' >Texto</textarea></div>
-                          
-                          <div  class='sombra' ondblclick='editarTexto(this)'></div></div>"></div>
-                      </th>
-                      
-                      <th>
-                        <div class="elemento_menu1" data-elemento="<div  width='200'  data-tipo='tipo1' style='background:white;height:100px ; width:100px'  ><div class='elemento_pagina'     style='background:red; height:100% ; width:100%'  ></div></div>">
-                        </div>
-                      </th>
-
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <!-- persona 1 -->
-                    <tr data-filapersonaje="p1" >
+               
+                 <div style="width:100%; 
+                            height: 270px;
+                            overflow-y: auto;
+                            margin-top: 20px;"> 
+                  <table style="width:100%">
+                   
+                    <tbody>
+                      <!-- persona 1 -->
+                      <tr data-filapersonaje="p1" >
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p1/c1.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p1/cuerpo1.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                         </div>
+                         <label class="label_estado_personaje">FELIZ</label>
+                        </th>
+                        
                         <th>
-                        <div class="elemento_menu1 imagen_fondo"
-                         style="background-image: url(img/personajes/p1/c1.png); " 
-                         data-elemento="<div   data-tipo='tipo1' 
-                        class='imagen_fondo'
-                        style='background:url(img/personajes/p1/cuerpo1.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
-                        <label></label></div>
-                      </th>
-                      
-                      <th>
-                        <div class="elemento_menu1 imagen_fondo"
-                         style="background-image: url(img/personajes/p1/c2.png); " 
-                         data-elemento="<div   data-tipo='tipo1' 
-                        class='imagen_fondo'
-                        style='background:url(img/personajes/p1/cuerpo2.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
-                        <label></label></div>
-                      </th>
-                    </tr>
-
-                     <tr data-filapersonaje="p1">
-                        <th>
-                        <div class="elemento_menu1 imagen_fondo"
-                         style="background-image: url(img/personajes/p1/c2.png); " 
-                         data-elemento="<div   data-tipo='tipo1' 
-                        class='imagen_fondo'
-                        style='background:url(img/personajes/p1/cuerpo2.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
-                       </div>
-                        <label class="label_estado_personaje">FELIZ</label>
-                      </th>
-                      
-                      <th>
-                        <div class="elemento_menu1 imagen_fondo"
-                         style="background-image: url(img/personajes/p1/c3.png); " 
-                         data-elemento="<div   data-tipo='tipo1' 
-                        class='imagen_fondo'
-                        style='background:url(img/personajes/p1/cuerpo3.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p1/c2.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p1/cuerpo2.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
                           </div>
                           <label class="label_estado_personaje">TRISTE</label>
+                        </th>
+                      </tr>
+
+                       <tr data-filapersonaje="p1">
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p1/c3.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p1/cuerpo3.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                         </div>
+                          <label class="label_estado_personaje">PENSATIVO</label>
+                        </th>
+                        
+                        <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p1/c4.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p1/cuerpo4.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                            </div>
+                            <label class="label_estado_personaje">ASUSTADO</label>
+                           </th>
+                        </tr>  
+
+                      <tr data-filapersonaje="p1">
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p1/c5.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p1/cuerpo5.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                          </div>
+                          <label class="label_estado_personaje">DESAFIANTE</label>
                          </th>
-                      </tr>  
-
-                    <tr data-filapersonaje="p1">
+                        
                         <th>
-                        <div class="elemento_menu1 imagen_fondo"
-                         style="background-image: url(img/personajes/p1/c4.png); " 
-                         data-elemento="<div   data-tipo='tipo1' 
-                        class='imagen_fondo'
-                        style='background:url(img/personajes/p1/cuerpo4.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
-                        </div>
-                        <label class="label_estado_personaje">PENSATIVO</label>
-                       </th>
+                        </th>
+                      </tr><!-- fin de personaje 1-->
                       
-                      <th>
-                        <div class="elemento_menu1 imagen_fondo"
-                         style="background-image: url(img/personajes/p1/c5.png); " 
-                         data-elemento="<div   data-tipo='tipo1' 
-                        class='imagen_fondo'
-                        style='background:url(img/personajes/p1/cuerpo5.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
-                        </div>
-                        <label class="label_estado_personaje">ASUSTADO</label>
-                      </th>
-                    </tr>
 
-                     <tr>
+                      <!-- persona 2 -->
+                      <tr data-filapersonaje="p2" >
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p2/c1.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p2/cuerpo1.png);  background-size: 100%; height:150px ; width:100px'  ></div>">
+                         </div>
+                         <label class="label_estado_personaje">FELIZ</label>
+                        </th>
+                        
                         <th>
-                        <div class="elemento_menu1 imagen_fondo"
-                         style="background-image: url(img/personajes/p1/c1.png); " 
-                         data-elemento="<div   data-tipo='tipo1' 
-                        class='imagen_fondo'
-                        style='background:url(img/personajes/p1/cuerpo1.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
-                       </div>
-                        <label class="label_estado_personaje">DESAFIANTE</label>
-                      </th>
-                      
-                      <th>                        
-                      </th>
-                    </tr><!-- fin de personaje 1-->
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p2/c2.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p2/cuerpo2.png);  background-size: 100%; height:150px ; width:100px'  ></div>">
+                          </div>
+                          <label class="label_estado_personaje">TRISTE</label>
+                        </th>
+                      </tr>
+
+                       <tr data-filapersonaje="p2">
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p2/c3.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p2/cuerpo3.png);  background-size: 100%; height:150px ; width:100px'  ></div>">
+                         </div>
+                          <label class="label_estado_personaje">PENSATIVO</label>
+                        </th>
+                        
+                        <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p2/c4.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p2/cuerpo4.png);  background-size: 100%; height:150px ; width:100px'  ></div>">
+                            </div>
+                            <label class="label_estado_personaje">ASUSTADO</label>
+                           </th>
+                        </tr>  
+
+                      <tr data-filapersonaje="p2">
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p2/c5.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p2/cuerpo5.png);  background-size: 100%; height:150px ; width:100px'  ></div>">
+                          </div>
+                          <label class="label_estado_personaje">DESAFIANTE</label>
+                         </th>
+                        
+                        <th>
+                        </th>
+                      </tr><!-- fin de personaje 2-->
+
+
+                      <!-- persona 3 -->
+                      <tr data-filapersonaje="p3" >
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p3/c1.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/P3/cuerpo1.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                         </div>
+                         <label class="label_estado_personaje">FELIZ</label>
+                        </th>
+                        
+                        <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p3/c2.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p3/cuerpo2.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                          </div>
+                          <label class="label_estado_personaje">TRISTE</label>
+                        </th>
+                      </tr>
+
+                       <tr data-filapersonaje="p3">
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p3/c3.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p3/cuerpo3.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                         </div>
+                          <label class="label_estado_personaje">PENSATIVO</label>
+                        </th>
+                        
+                        <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p3/c4.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p3/cuerpo4.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                            </div>
+                            <label class="label_estado_personaje">ASUSTADO</label>
+                           </th>
+                        </tr>  
+
+                      <tr data-filapersonaje="p3">
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p3/c5.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p3/cuerpo5.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                          </div>
+                          <label class="label_estado_personaje">DESAFIANTE</label>
+                         </th>
+                        
+                        <th>
+                        </th>
+                      </tr><!-- fin de personaje 3-->
+
+
+                      <!-- persona 4 -->
+                      <tr data-filapersonaje="p4" >
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p4/c1.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p4/cuerpo1.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                         </div>
+                         <label class="label_estado_personaje">FELIZ</label>
+                        </th>
+                        
+                        <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p4/c2.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p4/cuerpo2.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                          </div>
+                          <label class="label_estado_personaje">TRISTE</label>
+                        </th>
+                      </tr>
+
+                       <tr data-filapersonaje="p4">
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p4/c3.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p4/cuerpo3.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                         </div>
+                          <label class="label_estado_personaje">PENSATIVO</label>
+                        </th>
+                        
+                        <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p4/c4.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p4/cuerpo4.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                            </div>
+                            <label class="label_estado_personaje">ASUSTADO</label>
+                           </th>
+                        </tr>  
+
+                      <tr data-filapersonaje="p4">
+                          <th>
+                          <div class="elemento_menu1 imagen_fondo"
+                           style="background-image: url(img/personajes/p4/c5.png); " 
+                           data-elemento="<div   data-tipo='tipo1' 
+                          class='imagen_fondo'
+                          style='background:url(img/personajes/p4/cuerpo5.png);  background-size: 100%; height:200px ; width:100px'  ></div>">
+                          </div>
+                          <label class="label_estado_personaje">DESAFIANTE</label>
+                         </th>
+                        
+                        <th>
+                        </th>
+                      </tr><!-- fin de personaje 4 -->
+
+                    </tbody>
+                  </table>
+                </div><!-- fin de di  de personajes -->
+
+              </div><!-- .row contenedor de todos los PERSONAJES -->
 
 
 
+               <!--  panel de texto -->   
+              <div class="row"  style=" height: 90px;
+                background: #F0EFFA;" data-seccion="panel_texto">
 
 
+                <div  style="width:80px; height:80px;  border: 2px dashed #6F636F; margin:10px auto; font-size: 22px;
+                    color: #080B57;line-height: 70px;" >
+                  <div class="elemento_menu1" data-elemento="<div  data-tipo='textarea' style='height:100px ; width:100px;font-size: 22px;
+                        color: #080B57;'  >
 
+                            <div style='overflow:hidden; height:100% ; width:100%;'> <textarea  class='text '   
+                              style='font-size: 22px; color: #080B57;box-shadow: none;'
+                                  onblur='noeditarBlur(this)' >Texto</textarea></div>
+                            
+                            <div  class='sombra' ondblclick='editarTexto(this)'></div></div>">
+                            Texto
+                  </div>
+                </div>
 
-                     <tr>
-                      <td><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:rgb(79,13,12)' height='200' alt=''>" id="e1"></div>
-                      <label>triste<label>
-                      </td>
-                      
-                      <td><div class="elemento_menu1" data-elemento="<img src='' class='elemento_pagina' id='gato'  width='200'  style='background:rgb(33,23,32)' height='200' alt=''>" id="e2"></div>
-                        <label>triste<label>
-                        </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div><!-- fin de di  de personajes -->
-            </div><!-- .row contenedor de todos los personajes -->
-          </div><!-- fin classe columns 12-->
-      </div><!--   fin del componente menu 1-->
+                <div style="width:100%; height:300px; overflow:auto;">  
+                   <table style="width:100%">
+                      <tbody id="cuerpo_bocadillo">
+                       
+                      </tbody>
+                  </table>
+                  </div>
+              </div><!-- fin  panel de texto --> 
+
+          </div><!-- fin classe columns 12  -->
+
+        </div><!-- ROW -->
+
+      </div><!--   fin del componente menu 1 class medium-3 -->
 
 
       <!-- CONTENDOR DE PAGINA ACTUAL -->
@@ -440,27 +623,35 @@
     <script src="js/foundation.min.js"></script>
     <script src="js/jquery-ui-1.10.4.custom.js"></script>
       <script src='js/spectrum.js'></script>
-      <script src="js/jquery.flexslider.js"></script>
+      <script src="js/flexslider.js"></script>
   
-    <script src="js/paginas.js"></script>
-    <script src="js/miJs.js"></script>
+   
     <script>
       $(document).foundation();
     
-       $('.flexslider').flexslider({
-        itemWidth:'20px'
-        ,animation: "fade"
-        ,slideshow:false
-        ,added: function(){
-          console.log("-----");
-        } 
+      var miFlex= $('.flexslider').flexslider({
+          itemWidth:'20px'
+          ,animation: "fade"
+          ,slideshow:false
+          
 
+          ,after:function(){
+           
+            actualizaEstadosPersonajes();
 
-        , before:function(){
-          console.log("befor");
-        }
+            
+          }        
        });
+
+      setTimeout(function(){
+        actualizaEstadosPersonajes();
+      },700);
     </script>
+<script src="js/interfaz.js"></script>
+   
+     <script src="js/paginas.js"></script>
+     
+    <script src="js/miJs.js"></script>
   </body>
 </html>
 

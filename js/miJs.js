@@ -9,12 +9,14 @@ var banderaPanelLetra =false;//false indicado panel de edicion  de letras no  es
 var manejadorPaginas= new Pagina();
 
 $( "#spinner" ).spinner({
-	min:1
+	 min:1
+	
 	,numberFormat: "n" 
+	
 	,change:function(event, ui){
 		cambiarTamLetra();		
 
-		}
+	}
 
 	,spin: function(event, ui){
 		cambiarTamLetra();
@@ -167,6 +169,29 @@ $("#herramientas_grupo").click(function(){
 });
 */
 
+///color  de escenario 
+$("#color_escenario").spectrum({
+    color: "#999"
+    ,showInitial: false    
+    ,chooseText: "Aceptar"
+    ,cancelText: "Cancelar"
+    ,showButtons: false
+    ,change: function(color) {
+    	color.toHexString(); // #ff0000
+    	//manejadorPaginas.$paginaActual.css("background-color", color.toHexString());
+    	
+	}
+
+	,move: function(color) {
+    color.toHexString(); // #ff0000
+    	manejadorPaginas.$paginaActual.css("background-color", color.toHexString());
+
+   }
+  });
+
+
+
+
 
 var color=$("#panel_tipo_color").spectrum({
     color: "#f00"
@@ -176,13 +201,12 @@ var color=$("#panel_tipo_color").spectrum({
     ,showButtons: false
     ,change: function(color) {
     	color.toHexString(); // #ff0000
-    	console.log("change "+color.toHexString());
+    	
 	}
 
 	,move: function(color) {
     color.toHexString(); // #ff0000
-    console.log("move "+color.toHexString());
-
+   
 
     	if($elementoSeleccionado.data("tipo")=="textarea")
     	{
@@ -325,7 +349,7 @@ $("#panel_letras_center, #panel_letras_left,#panel_letras_right").click(function
 $("#panel_tipo_letra").change(function(){
 	if($elementoSeleccionado && $elementoSeleccionado.data("tipo")=="textarea"){
 		var valor=$(this).val();
-		console.log("mi "+valor);
+		
 		$elementoSeleccionado.css("font-family",valor);
 		$elementoSeleccionado.find("textarea").css("font-family",valor);
 	}
@@ -453,6 +477,28 @@ $(".elemento_menu1").draggable({
 
 
 
+/*********************************
+*	menu 1 , convierte los elemento 
+*	draggable
+* 
+**********************************/
+$(".elemento_fondo").draggable({
+	cursor:"move"
+	//, cursorAt: { left:25,top:25 }
+	,delay:1
+	,"helper": function(){
+		var $self=$(this);
+		var representacion= $($self.data("elemento"))[0];
+		return representacion;
+	}
+	,opacity: 0.8
+	,"zIndex": 100
+	,drag:function( event, ui ){
+		
+		
+	}
+});
+
 
 
 
@@ -468,7 +514,7 @@ propiedadesPagina();
 function propiedadesPagina(){
 
 	$(".pagina").droppable({
-		accept:".elemento_menu1, .padre_elemento"
+		accept:".elemento_menu1, .padre_elemento , .elemento_fondo"
 		//,activeClass: "ui-state-highlight"
 		,greedy: true
 		, hoverClass: "drop-hover" 
@@ -481,8 +527,39 @@ function propiedadesPagina(){
 			//console.log(ui);
 		}
 		, drop: function( event, ui ) {
-			//console.log(ui);
-			dropElemento1(this, event, ui);
+			
+
+			if(ui.draggable.hasClass('elemento_fondo'))/// es de fondo 
+			{
+				var $elemento = $(ui.draggable.data("elemento"));
+				var tipo= $elemento.data("tipo");
+
+				//fondo image 
+				switch(tipo)
+				{
+
+					//imagen de fondo 
+					case "tipo_f1":
+					{
+
+						var imagen= $elemento.css("background-image");
+						
+						manejadorPaginas.$paginaActual.css("background-image",imagen);
+					}
+					break;
+
+					//elimna el fondo de image
+					case "tipo_f0":
+						manejadorPaginas.$paginaActual.css("background-image","none");
+
+					break;
+				}
+
+
+			}
+			else{
+				dropElemento1(this, event, ui);
+			}
 
 		}
 
@@ -690,7 +767,7 @@ function editarTexto(elemento)
 	$(elemento).hide();
 
 	$padre.find(".text").focus();
-	console.log("editar");
+
 	
 }
 
@@ -703,5 +780,5 @@ function noeditarBlur(elemento)
 	var $padre=$(elemento).parent().parent();
 
 	$padre.find(".sombra").show();
-	console.log("Noeditar");
+
 }

@@ -38,14 +38,31 @@ cursor:move;
 
 
 .pagina{
-width: 900px;
-height: 450px;
-margin : auto;
-border: 1px solid #999;
-background-color:  #D6DBE1;
-position: relative;
-box-shadow: 0 0 33px #666;
+	width: 900px;
+	height: 450px;
+	margin : auto;
+	border: 1px solid #999;
+	background-color:  #D6DBE1;
+	position: relative;
+	box-shadow: 0 0 33px #666;
+    background-repeat: no-repeat no-repeat;
+    background-size: 100% 100% !important;
+
 }
+
+
+.elemento_fondo{
+
+	background-repeat: no-repeat no-repeat;
+    background-size: 100% 100% !important;
+    height: 70px;
+	width: 70px;
+	margin: 5px auto;
+	
+	cursor: move; 
+	
+}
+
 
 
 /** manejo de drop **/
@@ -240,7 +257,7 @@ background-color: rgba(56,60,76,0.66);
    bottom:0px;
    height:43px;
    width:100%;
-
+	z-index: 2000;
 
 }
 
@@ -337,7 +354,16 @@ panel principal
 	line-height: 50px;
  
 }
- 
+
+
+#botones_presentacion_p1 .active_button{
+	background-color: #8086A0 !important;
+	-moz-box-shadow: inset 0 0 30px #444;
+	-webkit-box-shadow: inset 0 0 30px #444;
+	box-shadow: inset 0 0 30px #444;
+	cursor: default;
+	border: 3px solid #A29EA2;
+} 
 
 #fila_1panel .button:hover {
 	-moz-box-shadow:inset 0 0 30px #444;
@@ -352,7 +378,6 @@ panel principal
 	
 	display: inline-block;
 	margin-left: 40%;
-
 
 }
 
@@ -372,7 +397,7 @@ height: initial;
 
 /**********texto para introducir *************/
 [data-tipo='textarea'] .sombra{
-	background:rgba(255,255,255,0.1); 
+	
 	height:100%; 
 	width:100%;
 	overflow:hidden;
@@ -515,7 +540,7 @@ margin: 0 0 1px 0;
 
 /********** bocadilloo ***********/
 
-tr[data-fila] label
+.label_estado_personaje
 {
 	font-size: 14px;
 	font-weight: bold;
@@ -551,4 +576,10 @@ tr[data-fila] label
 .radios-personajes
 {
 	border-radius: 100px;
+}
+
+
+.flex-control-nav>li{
+	width: 6px;
+	height: 6px;
 }
