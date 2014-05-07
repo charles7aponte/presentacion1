@@ -38,7 +38,7 @@ cursor:move;
 
 
 .pagina{
-	width: 900px;
+	width: 800px;
 	height: 450px;
 	margin : auto;
 	border: 1px solid #999;
@@ -48,6 +48,16 @@ cursor:move;
     background-repeat: no-repeat no-repeat;
     background-size: 100% 100% !important;
 
+}
+
+.marco{
+
+	width:100%; 
+	height: 100%;
+	background-repeat: no-repeat no-repeat;
+    background-size: 100% 100% !important;
+ /*   position: relative;
+    z-index: 900;*/
 }
 
 
@@ -255,7 +265,7 @@ background-color: rgba(56,60,76,0.66);
  position:fixed;
    left:0px;
    bottom:0px;
-   height:43px;
+   height:45px;
    width:100%;
 	z-index: 2000;
 
@@ -270,7 +280,7 @@ background-color: rgba(56,60,76,0.66);
  }
 
 .pag_transicion{
- height: 40px;
+ height: 65px;
 border: 1px solid rgba(31,35,48,0.43);
 }
 
@@ -582,4 +592,81 @@ margin: 0 0 1px 0;
 .flex-control-nav>li{
 	width: 6px;
 	height: 6px;
+}
+
+
+.presentacion_botones{
+
+	display: inline-block;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	opacity: 0.8;
+	z-index: 901;
+
+}
+
+
+.boton_representacion{
+	padding: 2px 10px 5px 10px !important;
+	font-size: 30px !important;
+}
+
+.desactive_representacion{
+
+	opacity: 0.5;
+	background-color: #585366 !important;
+	cursor: default !important;
+}
+
+
+.mi_lista{
+	margin-bottom: 0;
+	margin-left: 20px;
+	
+	list-style: none;
+}
+
+
+.mi_lista >li{
+
+	margin-bottom: 0;
+	margin-left: 10px;
+	display: inline-block;
+
+}
+
+.mi_lista .mi_lista_imagen{
+	width: 30px;
+	height: 30px;
+}
+
+.mi_lista .th{
+	border: solid 4px #291650;	
+	width: 38px;
+	height: 38px;
+	cursor: pointer;
+}
+
+.mi_lista .th_activo{
+	background: #38136F;
+}
+
+
+#sombra_contenedor_paginas{
+	
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 900;
+	top: -20px;
+}
+
+.mi_lista .label_transicion{
+	text-align: center;
+	color: #D1D2D6;
+	/* font-weight: bold; */
+	font-weight: bold;
+	font-size: 12px;
+
 }

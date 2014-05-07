@@ -18,15 +18,15 @@
   <body>
 
     <!-- panel  principal -->
-    <div class="row panel_principal">
+    <div class="row panel_principal" id="panel_principal_1">
 
 
       <!-- class1-->
       <div class="medium-12 large-12 columns">
         
         <!-- final 1 panel prinpla -->
-        <div class="row" id="fila_1panel">
-          <div class="medium-8 large-8 columns">
+        <div class="row" id="fila_1panel" style="height:50px">
+          <div class="medium-8 large-8 columns" style="height:50px">
 
             <div id="botones_presentacion_p1">
               <div class="button active_button"  id="boton_esecenario_1" style="background-color: #00ab26" data-mipanel="panel_escenario">
@@ -62,13 +62,13 @@
               </li> 
 
               <li>
-                <a  class="main icon2 " title="guardar" alt="guardar">
+                <a  class="main icon2 " id="bton_guardar"  title="guardar" alt="guardar">
                    <i class="mi_icons step fi-save size-60"></i>
                 </a>
               </li>
 
-              <li>
-                <a  class=" main icon2 " title="presentacion" alt="presentacion">
+              <li onclick="manejadorPaginas.inicioPresentacion()">
+                <a  class=" main icon2 " title="presentacion" alt="presentacion" onclick="return false">
                    <i class="mi_icons fi-play-circle size-60"></i>
                 </a>
               </li>
@@ -90,11 +90,10 @@
     <!-- fin del panel principa -->
     
 
-
-    <div class="row " style="background:#F8F8F8" data-equalizer>
+    <div class="row " style="background:#F8F8F8" >
 
       <!-- menu de componentes -->
-      <div class="medium-3 large-3 columns menu1 " style="overflow-x: auto" data-equalizer-watch>
+      <div class="medium-3 large-3 columns menu1 " id="menu_lateral_1" style="overflow-x: auto;height: 510px;" >
         <h2>Elementos</h2>
           <div class="row" >
             
@@ -117,6 +116,23 @@
                     </table>
                    </div> 
                </div> <!-- fin  panel escenario -->
+
+
+
+
+                <!-- panel marcos -->
+               <div class="row" data-seccion="panel_marcos"> 
+
+                  <div style="width: 100% ; height: 300px ; margin-top:10px ; overflow: auto">                    
+                    <label  class="label_estado_personaje" >Marcos</label>
+                    <table style="width: 100%">
+                       <tbody id="imagenes_marcos">
+                        </tbody>
+                    </table>
+                   </div> 
+               </div> <!-- fin  panel escenario -->
+
+
 
 
                
@@ -442,7 +458,39 @@
 
 
       <!-- CONTENDOR DE PAGINA ACTUAL -->
-      <div  id="contenedor_paginas" class="medium-9 large-9 columns contenedor_principal" data-equalizer-watch >
+      <div  id="contenedor_paginas" class="medium-9 large-9 columns contenedor_principal"  >
+
+
+      <div  id="sombra_contenedor_paginas"  style="display: none">
+      </div>
+
+      <div class="button-bar presentacion_botones" id="grupos_btones_presentacion" style="display:none">
+        <ul class="button-group">
+
+
+           <li  onclick="manejadorPaginas.finPresentacion()">
+            <a href="#"  onclick="return false"  class="small button fi-arrows-in " style="padding: 2px 10px 5px 10px ; font-size: 20px">
+              </a>
+          </li>
+
+         
+          <li  onclick="manejadorPaginas.anteriorPaginaAnimada(); manejadorPaginas.banderaPlay=false;">
+            <a href="#"  onclick="return false" id="bton_presentacion_anterio" class="small button fi-arrow-left boton_representacion">
+              </a>
+          </li>
+
+           <li onclick="manejadorPaginas.inicioPlay()" >
+            <a href="#"  onclick="return false;"  id="bton_presentacion_medio"  class="small button fi-play  " 
+              style="padding: 10px 20px 10px 20px ;  font-size: 35px;">
+            </a>
+          </li>
+          
+          <li   onclick="manejadorPaginas.siguientePaginaAnimada(); manejadorPaginas.banderaPlay=false;">
+            <a href="#"  onclick="return false;" id="bton_presentacion_siguiente"   class="small button fi-arrow-right boton_representacion">
+            </a>
+          </li>
+        </ul>
+      </div>
 
         <h1></h1>
 
@@ -564,8 +612,8 @@
             
 
 
-        <div class="pagina" id="pagina0">
-
+        <div class="pagina" id="pagina0" data-marco="none" data-fondo="none" data-animacion="fade">
+          <div  class="marco" ></div>
           
         </div><!-- fin de .paigna--> 
       </div>
@@ -575,7 +623,7 @@
     
 
     <!-- menu 2 de paginas -->
-    <div class="row mi_footer">
+    <div class="row mi_footer" id="mi_footer_paginacion">
       <div class="large-12 columns "> 
         <!-- borde menu2 pagina  -->
         <div class="row pag_borde">
@@ -584,6 +632,81 @@
 
         <!-- efectos -->  
         <div class="row pag_transicion" style="display: none">
+
+          <ul class="mi_lista" style="" id="lista_transicion_presentacion">
+            
+            <li>
+              <label class="label_transicion" for="">fade</label>
+              
+              <div   class="th th_activo"  data-animacion="fade" 
+              onclick="seleccionarTransicion(this)">
+                <img class="mi_lista_imagen"  src="img/transicion/t1.png" onmouseover=" verTranscionDemo(this,'fade')">
+              </div>
+
+      
+            </li>
+            
+            <li  >
+              <label class="label_transicion" for="">blind</label>
+              <div class="th" data-animacion="blind"
+               onclick="seleccionarTransicion(this)" >
+                <img class="mi_lista_imagen" src="img/transicion/t1.png" onmouseover=" verTranscionDemo(this,'blind')">                 
+              </div>
+            </li>
+
+
+             <li  >
+               <label class="label_transicion" for="">bounce</label>
+             
+              <div class="th" data-animacion="bounce"
+               onclick="seleccionarTransicion(this)" >
+                <img class="mi_lista_imagen" src="img/transicion/t1.png" onmouseover=" verTranscionDemo(this,'bounce')">                 
+              </div>
+            </li>
+
+
+            <li  >
+
+               <label class="label_transicion" for="">clip</label>
+             
+              <div class="th" data-animacion="clip"
+               onclick="seleccionarTransicion(this)" >
+                <img class="mi_lista_imagen" src="img/transicion/t1.png" onmouseover=" verTranscionDemo(this,'clip')">                 
+              </div>
+            </li>
+
+
+            <li  >
+               <label class="label_transicion" for="">drop</label>
+             
+              <div class="th" data-animacion="drop"
+               onclick="seleccionarTransicion(this)" >
+                <img class="mi_lista_imagen" src="img/transicion/t1.png" onmouseover=" verTranscionDemo(this,'drop')">                 
+              </div>
+            </li>
+
+
+
+            <li  >
+              <label class="label_transicion" for="">explode</label>
+          
+              <div class="th" data-animacion="explode"
+               onclick="seleccionarTransicion(this)" >
+                <img class="mi_lista_imagen" src="img/transicion/t1.png" onmouseover=" verTranscionDemo(this,'explode')">                 
+              </div>
+            </li>
+
+
+            <li  >
+               <label class="label_transicion" for="">fold</label>
+             
+              <div class="th" data-animacion="fold"
+               onclick="seleccionarTransicion(this)" >
+                <img class="mi_lista_imagen" src="img/transicion/t1.png" onmouseover=" verTranscionDemo(this,'fold')">                 
+              </div>
+            </li>
+
+          </ul>
           
         </div>
         
@@ -593,7 +716,10 @@
           <div class="large-2 columns "> 
               <ul class="pagination">
                 <li class="current"><a href="" id="bton_pag_transicion" class="botones_efectos_paginas  step fi-page-export" onclick="return false "  ></a></li>
+
                 <li class="current"><a href=""   id="bton_pag_nueva" class="botones_efectos_paginas step fi-page-add size-21 " onclick="return false " ></a></li>
+
+                 <li class="current"><a href=""   id="bton_pag_eliminar" class="botones_efectos_paginas step fi-page-delete size-21 " onclick="return false " ></a></li>
             </ul>
           </div>
 
@@ -650,6 +776,7 @@
 <script src="js/interfaz.js"></script>
    
      <script src="js/paginas.js"></script>
+   
      
     <script src="js/miJs.js"></script>
   </body>

@@ -150,9 +150,10 @@ function generarHmtlFondos(cantidadFila, cantidad){
 
 		html+="<th> "
              +"               <div class=\"elemento_fondo imagen_fondo\" "
-             +"                style=\"background-image: url(img/fondo/f"+i+".png); \"  "
+             +"                style=\"background-image: url('img/fondo/f"+i+".png'); \"  "
              +"                data-elemento=\"<div   data-tipo='"+valor+"'  "
              +"               class='imagen_fondo' "
+               +" 			  data-imagen='img/fondo/f"+i+".png' "
              +"               style='background-image:url(img/fondo/f"+i+".png);  background-size: 100%; height:150px ; width:150px'  ></div>\" > "
              +"              </div> "
              +"  </th> ";
@@ -168,6 +169,55 @@ function generarHmtlFondos(cantidadFila, cantidad){
 	return html;
 }
 
-
 $("#imagenes_fondo1").html(generarHmtlFondos(2,10));
 
+
+
+
+//gnere el html de los marcos
+function generarHmtlMarcos(cantidadFila, cantidad){
+	var html="";
+	var valor="tipo_m1"
+
+	for(var i=1; i<=cantidad; i++)
+	{
+
+
+		 if(i%cantidadFila==1)
+        {
+        	html+=" <tr> ";
+        }
+
+
+        if(i==1)
+        	{
+        		valor="tipo_m0";
+        	}
+        	else{
+        		valor="tipo_m1";
+        	}
+
+
+		html+="<th> "
+             +"               <div class=\"elemento_fondo imagen_fondo\" "
+             +"                style=\"background-image: url('img/marcos/m"+i+".png'); \"  "
+             +"                data-elemento=\"<div   data-tipo='"+valor+"'  "
+             +"               class='imagen_fondo' "
+             +" 				data-imagen='img/marcos/m"+i+".png' "
+             +"               style='background-image:url(img/marcos/m"+i+".png);  background-size: 100%; height:150px ; width:150px'  ></div>\" > "
+             +"              </div> "
+             +"  </th> ";
+
+
+        if(i%cantidadFila==0)
+        {
+        	html+=" </tr> ";
+        }
+
+	}
+
+	return html;
+}
+
+
+$("#imagenes_marcos").html(generarHmtlMarcos(2,12));

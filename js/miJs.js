@@ -8,6 +8,8 @@ var banderaPanelLetra =false;//false indicado panel de edicion  de letras no  es
 
 var manejadorPaginas= new Pagina();
 
+
+
 $( "#spinner" ).spinner({
 	 min:1
 	
@@ -531,6 +533,8 @@ function propiedadesPagina(){
 
 			if(ui.draggable.hasClass('elemento_fondo'))/// es de fondo 
 			{
+
+				var $midragg = $(ui.draggable);
 				var $elemento = $(ui.draggable.data("elemento"));
 				var tipo= $elemento.data("tipo");
 
@@ -542,8 +546,10 @@ function propiedadesPagina(){
 					case "tipo_f1":
 					{
 
-						var imagen= $elemento.css("background-image");
+						var imagen= $elemento.data("imagen");
+						imagen="url('"+imagen+"')";
 						
+						manejadorPaginas.$paginaActual.data("fondo",imagen);
 						manejadorPaginas.$paginaActual.css("background-image",imagen);
 					}
 					break;
@@ -551,7 +557,25 @@ function propiedadesPagina(){
 					//elimna el fondo de image
 					case "tipo_f0":
 						manejadorPaginas.$paginaActual.css("background-image","none");
+						manejadorPaginas.$paginaActual.data("fondo","none");
 
+					break;
+
+					//PARA EL MArCCO
+					case "tipo_m1":
+						var imagen= $elemento.data("imagen");
+						imagen="url('"+imagen+"')";
+
+
+						manejadorPaginas.$paginaActual.data("marco", imagen);
+						manejadorPaginas.$paginaActual.find(".marco").css("background-image", imagen);
+					break;
+
+					//sin marco
+					case "tipo_m0":
+						
+						manejadorPaginas.$paginaActual.data("marco", "none");
+						manejadorPaginas.$paginaActual.find(".marco").css("background-image","none");
 					break;
 				}
 
@@ -588,7 +612,10 @@ function  dropElemento1(elemento,event, ui){
 			
 
 			$selft.append($nuevoElemento);
-			
+			$nuevoElemento.data("idpagina",manejadorPaginas.$paginaActual.attr("id"));
+
+
+
 			/******************************
 			****convierto el nuevo elemento resize
 			********************/
@@ -660,6 +687,14 @@ function  dropElemento1(elemento,event, ui){
 					,left:$nuevoElemento.offset().left 
 				});
 
+				if(banderaPanelLetra)
+				{
+						$("#panel_editar_letras").hide();
+						banderaPanelLetra=false;
+				}
+
+				$("#subgrupo_botones_boton_capa").hide();
+
 				actualizaPanelHerramientaEdicionLetras();
 
 				
@@ -705,7 +740,7 @@ $("#bton_pag_transicion").click(function(){
 	{
 			$(".pag_transicion").slideUp(200);
 			$(".mi_footer").animate({
-				height: 43
+				height: 45
 				
 			},2);
 		
@@ -713,7 +748,7 @@ $("#bton_pag_transicion").click(function(){
 	else{
 		$(".pag_transicion").show(100);
 		$(".mi_footer").animate({
-				height: 83
+				height: 110
 				
 			},200);
 	}
@@ -741,6 +776,18 @@ $("#bton_pag_nueva").click(function(){
 	//genera las propiedades a la nueva pagina
 	propiedadesPagina();
 });
+
+/***************
+* eleminar pagina
+**/
+$("#bton_pag_eliminar").click(function(){	
+
+	manejadorPaginas.eliminarPaginaActual(listaElementos);
+
+});
+
+
+
 	
 	/****
 		@param {int} posicionPagina   indica la poscion del pagina dentro de listaPaginas 
@@ -782,3 +829,72 @@ function noeditarBlur(elemento)
 	$padre.find(".sombra").show();
 
 }
+
+
+
+/*
+$( document).keypress(function() {
+  console.log( "Handler for .keypress() called." );
+});*/
+
+
+
+$( document ).keydown(function(e) {
+ //console.log(e.keyCode);// 39 -->   &&  37 <--
+ // 
+ 	switch(e.keyCode){
+ 		//-->
+ 		case 39:
+ 			manejadorPaginas.siguientePaginaAnimada();
+ 		break;
+
+ 		//<--
+ 		case 37:
+ 		
+ 			manejadorPaginas.anteriorPaginaAnimada();
+ 		break;
+
+ 		//ESC
+ 		case 27:
+ 		
+ 			manejadorPaginas.finPresentacion();
+ 		break;
+
+
+ 	}
+});
+
+
+
+/*****************************
+* selecciona trancicon 
+***/
+function seleccionarTransicion(elemento)
+{
+	
+	var $miElemento= $(elemento);
+	var animacion= $miElemento.data("animacion");
+
+	$("#lista_transicion_presentacion>li div.th_activo").removeClass("th_activo");
+
+	$miElemento.addClass('th_activo');
+
+ 	manejadorPaginas.actualizaTransicionPagina(animacion);
+
+
+
+
+}
+
+/*******************
+* ver la transcion de leemmtno como se comporta
+**/
+function verTranscionDemo(elemento,animacion)
+{
+	var $miElemento= $(elemento);
+	$miElemento.effect(animacion,{},500,function(){
+		 $miElemento.removeAttr( "style" ).hide().fadeIn();     
+	});
+}
+
+
