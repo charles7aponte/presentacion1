@@ -38,7 +38,7 @@ cursor:move;
 
 
 .pagina{
-	width: 800px;
+	width: 650px;
 	height: 450px;
 	margin : auto;
 	border: 1px solid #999;
@@ -47,6 +47,17 @@ cursor:move;
 	box-shadow: 0 0 33px #666;
     background-repeat: no-repeat no-repeat;
     background-size: 100% 100% !important;
+
+
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	margin: auto;
+
+
 
 }
 
@@ -557,7 +568,7 @@ margin: 0 0 1px 0;
 }
 
 .imagen_fondo{
-    background-repeat: no-repeat no-repeat;
+    background-repeat: no-repeat  !important;
     background-size: 100% 100% !important;
 
 }
@@ -669,4 +680,24 @@ margin: 0 0 1px 0;
 	font-weight: bold;
 	font-size: 12px;
 
+}
+
+
+#grupos_btones_presentacion{
+	opacity: 0.4;
+}
+
+
+#grupos_btones_presentacion:hover{
+	opacity: 1;
+}
+
+
+table tr th, table tr td {
+ padding: 0px 0px;
+
+}
+
+body{
+ overflow: hidden;
 }

@@ -246,6 +246,7 @@ $herramientaBotones.draggable({
 		drag:function(){
 			$("#panel_tipo_color").spectrum("hide");
 		}
+		,scroll:false
 	});
 
 $herramientaBotones.hide();
@@ -468,6 +469,7 @@ $(".elemento_menu1").draggable({
 	}
 	,opacity: 0.6
 	,"zIndex": 100
+	,scroll: false
 	,drag:function( event, ui ){
 
 		//console.info(ui);
@@ -486,6 +488,7 @@ $(".elemento_menu1").draggable({
 **********************************/
 $(".elemento_fondo").draggable({
 	cursor:"move"
+	,scroll: false
 	//, cursorAt: { left:25,top:25 }
 	,delay:1
 	,"helper": function(){
@@ -508,6 +511,7 @@ $(".elemento_fondo").draggable({
 
 
 propiedadesPagina();
+
 
 /*********************
 * genera la propiedade de la pagina para contenedor y arrastras los elemento
@@ -653,7 +657,8 @@ function  dropElemento1(elemento,event, ui){
 						//$("#herramientas_grupo_botones").css({display:'none'});
 						$("#panel_tipo_color").spectrum("hide");
 					}
-					,revert:"invalid"	
+					,revert:"invalid"
+					,scroll: false	
 				});
 
 
@@ -681,12 +686,15 @@ function  dropElemento1(elemento,event, ui){
 
 				//muestra la caja de herramientas
 				$elementoSeleccionado= $nuevoElemento;
+
+				
 				$("#herramientas_grupo_botones").show(200);
 				$("#herramientas_grupo_botones").css({
 					top: $nuevoElemento.offset().top- 60
-					,left:$nuevoElemento.offset().left 
+					,left:parseFloat($nuevoElemento.css("left")) + parseFloat(manejadorPaginas.$paginaActual.css("margin-left")) //$nuevoElemento.offset().left 
 				});
 
+		
 				if(banderaPanelLetra)
 				{
 						$("#panel_editar_letras").hide();
@@ -857,7 +865,8 @@ $( document ).keydown(function(e) {
  		//ESC
  		case 27:
  		
- 			manejadorPaginas.finPresentacion();
+ 			//manejadorPaginas.finPresentacion();
+ 			
  		break;
 
 
@@ -897,4 +906,251 @@ function verTranscionDemo(elemento,animacion)
 	});
 }
 
+
+
+
+
+
+/*************
+** carga los nuevos elementos
+**/
+function cargarElementos($nuevoElemento,idPagina){
+			if(manejadorPaginas==null)
+			return false;
+
+
+			$("#"+idPagina).append($nuevoElemento);
+			$nuevoElemento.data("idpagina",idPagina);
+
+
+
+			/******************************
+			****convierto el nuevo elemento resize
+			********************/
+			$nuevoElemento.resizable({
+			// autoHide: true 
+			  handles: "n, e, s, w, ne, se, sw, nw, all" 
+			});
+
+
+			//propiedades al elemento nuevo
+			/*$nuevoElemento.css({
+	         	position:'absolute'
+				,top: event.pageY-($nuevoElemento.height()/2)-$selft.offset().top
+				,left: event.pageX-($nuevoElemento.width()/2)-$selft.offset().left
+				,zIndex:10
+			});*/
+
+
+			//datos al nuevo elemento , datos que se necesitan 
+			$nuevoElemento.data("pagina",manejadorPaginas.$paginaActual.attr("id"));
+
+
+		   
+			//convierto el nuevo elemento draggable
+			$nuevoElemento.draggable({
+					cursor:"move"
+					,iframeFix: true
+					,containment: "parent"
+					,delay:1
+					,opacity: 0.6
+					,"zIndex": 100
+					,drag:function( event, ui ){
+
+						//console.info(ui);
+						//$("#herramientas_grupo_botones").css({display:'none'});
+						$("#panel_tipo_color").spectrum("hide");
+					}
+					,revert:"invalid"	
+				});
+
+
+
+			$nuevoElemento.resizable( "option", { disabled: true } );
+			$nuevoElemento.css({overflow:'visible'});
+			$nuevoElemento.addClass('padre_elemento');
+			$nuevoElemento.removeClass('ui-state-disabled');
+
+
+
+			//evento para seleccionar el eleemnto y activar la edicion del elemento seleccionado
+			$nuevoElemento.mousedown(function(e){
+				if($elementoSeleccionado)
+				{
+				//deseleccciona el elemento	
+				$elementoSeleccionado.resizable( "option", { disabled: true } );
+				$elementoSeleccionado.removeClass( "elemento_seleccionado" );
+				$elementoSeleccionado.removeClass('ui-state-disabled');
+				$elementoSeleccionado=null;
+
+									
+
+				}
+
+				//muestra la caja de herramientas
+				$elementoSeleccionado= $nuevoElemento;
+				$("#herramientas_grupo_botones").show(200);
+				$("#herramientas_grupo_botones").css({
+					top: $nuevoElemento.offset().top- 60
+					,left:$nuevoElemento.offset().left 
+				});
+
+				if(this.banderaPanelLetra)
+				{
+						$("#panel_editar_letras").hide();
+						banderaPanelLetra=false;
+				}
+
+				$("#subgrupo_botones_boton_capa").hide();
+
+				actualizaPanelHerramientaEdicionLetras();
+
+				
+			
+
+
+
+				
+				$nuevoElemento.resizable( "option", { disabled: false } );
+				$nuevoElemento.addClass( "elemento_seleccionado" );
+				
+				e.stopPropagation();
+			});
+
+			
+
+		
+			listaElementos.push($nuevoElemento[0]);
+
+	
+}
+
+
+
+/*****************
+* genera el json para guardar 
+*/
+function getStringJsonElmentos(){
+
+
+var miString="[";
+
+	 for(var i=0 ; i< listaElementos.length; i++)
+	 {
+	 	var $elemento= $(listaElementos[i]);
+	 	var elemento=" {"
+	 		 +"pagina:" +"\\\""+ $elemento.data("pagina")+"\\\""
+	 		+",tipo: " +"\\\""+ $elemento.data("tipo")+"\\\""
+	 		+",top:" +"\\\""+  $elemento.css("top")+"\\\""
+	 		+",left:" +"\\\""+  $elemento.css("left")+"\\\""
+	 		+",height:" +"\\\""+  $elemento.css("height")+"\\\""
+	 		+",width:" +"\\\""+  $elemento.css("width")+"\\\""
+	 	
+
+
+	 	//textarea
+	 	if($elemento.data("tipo")=="textarea")
+	 	{
+	 		$elemento= $elemento.find("textarea");
+
+	 	  	elemento+=",color:" +"\\\""+ $elemento.css("color")+"\\\""
+	 	  	+",fontSize:" +"\\\""+ $elemento.css("font-size")+"\\\""
+	 	  	+",fontFamily:" +"\\\""+ $elemento.css("font-family")+"\\\""
+	 	  	+",fontWeight:" +"\\\""+ $elemento.css("font-weight")+"\\\""
+	 	  	+",textDecoration:" +"\\\""+ $elemento.css("text-decoration")+"\\\""
+	 	  	+",textAlign:" +"\\\""+ $elemento.css("text-align")+"\\\""
+	 	  	+",texto:" +"\\\""+ $elemento.text()+"\\\"";
+	 	  	
+	 	  	
+	 	}
+	 	else{
+
+
+	 		elemento+=",imagen:" +"\\\" url('"+ $elemento.data("imagen")+"')\\\"";
+	 	}
+
+		
+
+	 	elemento+="},";
+
+	 	miString+=elemento;
+	 }//fin de for
+
+
+	 if(miString.length>1)
+	 {
+	 	miString=miString.substring(0,miString.length-1);
+	 }
+
+return  miString+="]";
+}
+
+
+
+/***************
+**
+* cargar ememtos 
+**/
+function cargarJsonStringOf(mijson){
+	mijson= eval(mijson);
+
+	for(var i=0; i< mijson.length ; i++)
+	{
+		var stringElemento ="";
+		var elementoJson= mijson[i];
+
+		if(elementoJson.tipo=="textarea")
+		{
+
+			var $text=$("<div  data-tipo='textarea' style='position:absolute;height:"+elementoJson.height+" ; width:"+elementoJson.width+";"
+
+						+" top:"+elementoJson.top+";left:"+elementoJson.left+"'  > "
+
+                        +"    <div style='overflow:hidden; height:100% ; width:100%;'> <textarea  class='text ' "  
+                        +"    style='box-shadow: none;' "
+                        +"          onblur='noeditarBlur(this)' >Texto</textarea></div> "
+                        +"    <div  class='sombra' ondblclick='editarTexto(this)'></div></div>");
+			
+
+			var opciones={
+			color:	elementoJson.color	
+			,fontSize:  elementoJson.fontSize
+	 	  	,fontFamily: elementoJson.fontFamily
+	 	  	,fontWeight: elementoJson.fontWeight
+	 	  	,textDecoration: elementoJson.textDecoration
+	 	  	,textAlign: elementoJson.textAlign};
+
+
+	 	  	$text.css(opciones);
+	 	  	$text.find("textarea").css(opciones).text(elementoJson.texto);
+
+	 	  	cargarElementos($text, elementoJson.pagina);
+		}
+		else{
+
+			var $elementoNuevo=$("<div   data-tipo='tipo1' "
+
+                      //  +"   data-imagen="+elementoJson.imagen+" "
+                        +"  class='imagen_fondo' "
+                        +"  style='position:absolute;  background-size: 100%; height:"+elementoJson.height+" ; width:"+elementoJson.width+";'  ></div>");
+
+
+			$elementoNuevo.css("background-image",elementoJson.imagen);
+			$elementoNuevo.css("top",elementoJson.top);
+			$elementoNuevo.css("left",elementoJson.left);
+			
+			$elementoNuevo.width(elementoJson.width);
+			$elementoNuevo.height(elementoJson.height);
+			$elementoNuevo.data("image",elementoJson.imagen);
+
+
+			cargarElementos($elementoNuevo, elementoJson.pagina);
+
+		}
+	}
+	
+
+
+
+}
 

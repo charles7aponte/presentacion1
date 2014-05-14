@@ -26,7 +26,7 @@ function actualizaEstadosPersonajes(){
 			
 			$("tr[data-filapersonaje='"+valor+"']").show(10);
 			
-			//console.log("cantaidad "+ $("tr[data-filapersonaje='"+valor+"']").length);
+			
 
 		}
 		else{
@@ -75,7 +75,53 @@ function seleccionSeccion($elemento){
 
 	$("div[data-seccion='"+valor+"']").slideDown();
 
+		ajustaTamPanel();
 }
+
+
+
+
+var miIdSetTime=null;
+
+/**********************************
+*************************
+*  ajausta de modo vertical la pantalla
+*
+**/
+
+$(window).resize(function(){
+	$("#menu_lateral_1").height($(window).height());
+	$("#contenedor_paginas").height( $(window).height() -70);
+
+
+		if(miIdSetTime)
+			clearTimeout(miIdSetTime);
+
+		miIdSetTime=setTimeout(function(){
+				ajustaTamPanel();	
+		},300);
+	
+
+});
+
+/**************
+ajusta para ultilizar el maximo de alto en los paneles
+**/
+function ajustaTamPanel(){
+	$("#panel_escenario_contenido").height( $(window).height() -  $("#panel_escenario_contenido").offset().top-60);
+	$("#panel_marcos_contenido").height( $(window).height() -  $("#panel_marcos_contenido").offset().top-60);
+	$("#panel_personajes_contenido").height( $(window).height() -  $("#panel_personajes_contenido").offset().top-60);
+		
+	$("#panel_texto_contenido").height( $(window).height() -  $("#panel_texto_contenido").offset().top-60);
+	
+
+}
+
+
+
+
+$(window).resize();
+
 
 
 
@@ -96,10 +142,12 @@ function generarHtmlBocadillos(cantidadFila, cantidad){
         }
 
 		html+=" <th> "
-          +"                <div class=\"elemento_menu1 imagen_fondo\" "
+          +"                <div class=\"elemento_menu1 imagen_fondo\" "           
           +"                 style=\"background-image: url(img/bocadillo/b"+i+".png); \"  "
           +"                 data-elemento=\"<div   data-tipo='tipo1'  "
-          +"                class='imagen_fondo' "
+
+          +" 				 class='imagen_fondo' " 
+          +"				 data-imagen='img/bocadillo/b"+i+".png'  "
           +"                style='background:url(img/bocadillo/b"+i+".png);  background-size: 100%; height:100px ; width:100px'  ></div>\"> "
           +"               </div>  "                       
           +"              </th>  ";
@@ -154,7 +202,7 @@ function generarHmtlFondos(cantidadFila, cantidad){
              +"                data-elemento=\"<div   data-tipo='"+valor+"'  "
              +"               class='imagen_fondo' "
                +" 			  data-imagen='img/fondo/f"+i+".png' "
-             +"               style='background-image:url(img/fondo/f"+i+".png);  background-size: 100%; height:150px ; width:150px'  ></div>\" > "
+             +"               style='background-image:url(img/fondo/f"+i+".png);  background-size: 100%; height:90px ; width:90px'  ></div>\" > "
              +"              </div> "
              +"  </th> ";
 
@@ -202,9 +250,10 @@ function generarHmtlMarcos(cantidadFila, cantidad){
              +"               <div class=\"elemento_fondo imagen_fondo\" "
              +"                style=\"background-image: url('img/marcos/m"+i+".png'); \"  "
              +"                data-elemento=\"<div   data-tipo='"+valor+"'  "
+             
              +"               class='imagen_fondo' "
              +" 				data-imagen='img/marcos/m"+i+".png' "
-             +"               style='background-image:url(img/marcos/m"+i+".png);  background-size: 100%; height:150px ; width:150px'  ></div>\" > "
+             +"               style='background-image:url(img/marcos/m"+i+".png);  background-size: 100%; height:100px ; width:100px'  ></div>\" > "
              +"              </div> "
              +"  </th> ";
 

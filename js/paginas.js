@@ -20,7 +20,7 @@ function Pagina(){
 		    ,fondoOriginal: $("#contenedor_paginas").css("background")//guadar el color de fondo inicias
 		   ,fondoPresentacion:"rgba(24, 50, 41, 0.5)"//color de fondo en ele momento de la presentcion
 		    ,banderaPasandoPagina:false // false si no esta en proceso de transicion depasar una pagina con animacion , y ture si 
-
+		    ,banderaHabilitaEdicion:true
 			/*************** funciones *****************/
 			,nueva:function(){
 				this.idPagina++;
@@ -32,7 +32,17 @@ function Pagina(){
 
 				this.$paginaActual=$nuevaPagina;
 				this.posicionActual= this.paginas.length-1;
-				
+
+
+				if(this.banderPresentacion)
+				{
+
+
+				$(".pagina").css("-webkit-transform","scale(1.2,1.2)");
+				$(".pagina").css("transform","scale(1.2, 1.2)");
+
+
+				}
 			}
 
 
@@ -121,7 +131,17 @@ function Pagina(){
 				$("#contenedor_paginas").css("background",this.fondoPresentacion);
 				$("body").css("background",this.fondoPresentacion);
 
+				$(".pagina").css("-webkit-transform","scale(1.2,1.2)");
+				$(".pagina").css("transform","scale(1.2,1.2)");
 
+
+				//evita el regreso
+				if(this.banderaHabilitaEdicion==false)
+				{
+					$("#bton_cierrre_presentacion").hide();
+
+					$("#grupo_botones_transicion").hide();
+				}
 			}
 
 
@@ -191,6 +211,7 @@ function Pagina(){
 					
 				}
 
+
 				return false;
 			}
 
@@ -211,6 +232,9 @@ function Pagina(){
 					this.pasarPaginaAnimacion(posicion);
 					
 				}
+
+
+
 
 				return false;
 			}
@@ -333,6 +357,9 @@ function Pagina(){
 
 			$("body").css("background",this.fondoOriginal);
 			$("#contenedor_paginas").css("background",this.fondoOriginal);
+
+			$(".pagina").css("-webkit-transform","scale(1,1)");
+			$(".pagina").css("transform","scale(1,1)");
 		
 
 		 }
@@ -477,20 +504,15 @@ function Pagina(){
 			this.$paginaActual.remove();
 			this.paginas=[];
 			var mi_contadorId=0;
-			console.info(jsonPaginas);
+			
 
 			for(var i=0; i<jsonPaginas.length ; i++)
 			{
 				var jPagina=jsonPaginas[i];
 
-				console.log(jPagina.id);
-
 				var idInteroPagina= (jPagina.id+"").split("pagina");
-				console.log(idInteroPagina);
 				idInteroPagina= idInteroPagina[idInteroPagina.length-1];
-				console.log(idInteroPagina);
 				idInteroPagina= parseInt(idInteroPagina);
-				console.log(idInteroPagina);
 
 				if(mi_contadorId<idInteroPagina)
 					idInteroPagina= mi_contadorId;
@@ -501,9 +523,7 @@ function Pagina(){
 				 					+" data-animacion='"+jPagina.animacion+"'> " 
 				 					+" <div class='marco'></di></div>");
 
-				console.log($nuevaPagina[0]);
-
-
+			
 				//genera lso estiso 
 				$nuevaPagina.css({
 					'background-color': jPagina.color
@@ -530,6 +550,7 @@ function Pagina(){
 
 
 			this.idPagina= idInteroPagina; 
+			this.showPaginaActual();
 			this.htmlPaginado();
 		}
 
@@ -538,3 +559,5 @@ function Pagina(){
 
 		};// fin obje
 };// fin funcitoon
+
+
