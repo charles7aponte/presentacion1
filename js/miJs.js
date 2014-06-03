@@ -458,28 +458,31 @@ $(document).mousedown(function(event) {
 *	draggable
 * 
 **********************************/
-$(".elemento_menu1").draggable({
-	cursor:"move"
-	//, cursorAt: { left:25,top:25 }
-	,delay:1
-	,"helper": function(){
-		var $self=$(this);
-		var representacion= $($self.data("elemento"))[0];
-		return representacion;
-	}
-	,opacity: 0.6
-	,"zIndex": 100
-	,scroll: false
-	,drag:function( event, ui ){
-
-		//console.info(ui);
-		$("#herramientas_grupo_botones").hide(200);
-		$("#panel_tipo_color").spectrum("hide");
-	}
-});
+function actualizaDropMenu(){
 
 
+	$(".elemento_menu1").draggable({
+		cursor:"move"
+		//, cursorAt: { left:25,top:25 }
+		,delay:1
+		,"helper": function(){
+			var $self=$(this);
+			var representacion= $($self.data("elemento"))[0];
+			return representacion;
+		}
+		,opacity: 0.6
+		,"zIndex": 100
+		,scroll: false
+		,drag:function( event, ui ){
 
+			//console.info(ui);
+			$("#herramientas_grupo_botones").hide(200);
+			$("#panel_tipo_color").spectrum("hide");
+		}
+	});
+
+}
+actualizaDropMenu();
 
 /*********************************
 *	menu 1 , convierte los elemento 
@@ -1059,7 +1062,7 @@ var miString="[";
 	 	  	+",fontWeight:" +"\\\""+ $elemento.css("font-weight")+"\\\""
 	 	  	+",textDecoration:" +"\\\""+ $elemento.css("text-decoration")+"\\\""
 	 	  	+",textAlign:" +"\\\""+ $elemento.css("text-align")+"\\\""
-	 	  	+",texto:" +"\\\""+ $elemento.text()+"\\\"";
+	 	  	+",texto:" +"\\\""+ $elemento.val()+"\\\"";
 	 	  	
 	 	  	
 	 	}

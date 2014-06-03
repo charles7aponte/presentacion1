@@ -16,63 +16,90 @@
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
+  
+  
+  
+  
+  
 
     <!-- panel  principal -->
     <div class="row panel_principal" id="panel_principal_1">
 
 
+	
+		
       <!-- class1-->
       <div class="medium-12 large-12 columns">
         
         <!-- final 1 panel prinpla -->
-        <div class="row" id="fila_1panel" style="height:50px">
-          <div class="medium-8 large-8 columns" style="height:50px">
+        <div class="row" id="fila_1panel" style="height:80px; background-color: #23A299;">
+          <div class="medium-3 large-3 columns" style="background-color: #008D83; height: 80px;">
+          </div>
 
-            <div id="botones_presentacion_p1">
-              <div class="button active_button"  id="boton_esecenario_1" style="background-color: #00ab26" data-mipanel="panel_escenario">
-                  <p>Escenarios</p>
+
+
+          <div class="medium-6 large-6 columns" style="height:50px">
+
+            <div id="botones_presentacion_p1"
+            style="position: absolute;
+            margin-top: 10px;
+            left: 0.5%;"
+            >
+              <div class="button active_button  has-tip"has-tip  id="boton_esecenario_1" style="background-color: #00ab26;font-size:45px" data-mipanel="panel_escenario"
+              data-tooltip  title="Escenarios"
+              >
+                  <!-- Escenarios -->
               </div>
                
-                <div class="button" style="background-color: #d90004" data-mipanel="panel_personajes">
-                  <p>Personajes</p>
+                <div style="background-color: #FFFFFF ;font-size: 50px;" data-mipanel="panel_personajes"
+                 data-tooltip class="has-tip  button" title="Personajes" 
+                >
+                  <!-- personajes -->
                 </div>
 
-                 <div class="button" style="background-color: #121D38" data-mipanel="panel_texto">
-                  <p>Texto</p>
+                 <div class="button  has-tip" style="background-color: #FFFFFF;font-size: 45px;" data-mipanel="panel_texto"
+                data-tooltip  title="Texto"
+                 >
+                  <!--Texto-->
                 </div>
 
                 
-                <!--
-                 <div class="button" style="background-color: #D37621" data-mipanel="panel_imagenes">
-                  <p>Imagenes</p>
+                
+                 <div class="button  has-tip" style="background-color: #FFFFFF; font-size:45px" data-mipanel="panel_imagenes"
+                data-tooltip  title="Imagenes"
+                 >
+                  <!--Imagenes -->
                 </div>
-                  -->
+                
 
-                 <div class="button" style="background-color: #31C828" data-mipanel="panel_marcos">
-                  <p>Marcos</p>
+                 <div class="button   has-tip" style="background-color: #FFFFFF; font-size:45px;" data-mipanel="panel_marcos"
+                data-tooltip  title="Marcos"
+                 >
+                  <!-- Marcos-->
                 </div>
             </div>
           </div>  
             
+            
           <div class="medium-3 large-3 columns">
-             <ul  id="botones_principales" class="button-group [radius round]"> 
+             <ul  id="botones_principales" class="button-group [radius round]" style="margin-top:12px"> 
               
-
+            <!--
               <li>
                 <a  class="main icon2 " title="abrir" alt="abrir">
                    <i class="mi_icons fi-folder size-60"></i>
                 </a>
               </li> 
-
+-->
               <li>
                 <a  class="main icon2 " id="bton_guardar"  title="guardar" alt="guardar">
-                   <i class="mi_icons step fi-save size-60"></i>
+                   <i class="mi_icons step "></i>
                 </a>
               </li>
 
               <li onclick="manejadorPaginas.inicioPresentacion()">
-                <a  class=" main icon2 " title="presentacion" alt="presentacion" onclick="return false">
-                   <i class="mi_icons fi-play-circle size-60"></i>
+                <a  class=" main icon2 " id="ver_presentacion" title="presentacion" alt="presentacion" onclick="return false">
+                   <i class="mi_icons "></i>
                 </a>
               </li>
 
@@ -93,17 +120,17 @@
     <!-- fin del panel principa -->
     
 
-    <div class="row " style="background:#F8F8F8" >
+    <div class="row " style="background:#E0FFE4" >
 
       <!-- menu de componentes -->
       <div class="medium-3 large-3 columns menu1 " id="menu_lateral_1" style="overflow-x: auto; overflow-y:hidden ; height: 510px;" >
-        <h2>Elementos</h2>
+        <h2 style="opacity: 0">Elementos</h2>
           <div class="row" >
             
 
               <div class="large-12 columns" >
 
-              <!-- panel escenario -->
+            <!-- panel escenario -->
                <div class="row" data-seccion="panel_escenario">
 
                   <div style="width: 100% ;">                    
@@ -122,6 +149,28 @@
                </div> <!-- fin  panel escenario -->
 
 
+
+
+
+               <!-- panel escenario -->
+               <div class="row" data-seccion="panel_imagenes">
+
+                  <div style="width: 100% ;">                    
+                    <label  class="label_estado_personaje" >Nueva Imagen</label>
+                    <a class=" [tiny small medium ] [radius round] button" href="#"  onclick="return false;" 
+                     id="bton_imagene_externa">Agregar</a>
+                   </div> 
+
+                  <div style="width: 100% ; height: 300px ; margin-top:10px ; overflow: auto"
+                  id="panel_imagenes_contenido">                    
+                    <label  class="label_estado_personaje" >Imagenes</label>
+                    <table style="width: 99%">
+                       <tbody id="panel_imagenes_contenido_table1" style="width: 99%">
+                        </tbody>
+                    </table>
+                   </div> 
+
+               </div> <!-- fin  panel escenario -->
 
 
                 <!-- panel marcos -->
@@ -476,7 +525,7 @@
 
                <!--  panel de texto -->   
               <div class="row"  style=" height: 90px;
-                background: #F0EFFA;" data-seccion="panel_texto">
+                background: #F8F9D9;" data-seccion="panel_texto">
 
 
                 <div  style="width:80px; height:80px;  border: 2px dashed #6F636F; margin:10px auto; font-size: 22px;
@@ -524,7 +573,8 @@
 
 
            <li  id="bton_cierrre_presentacion" onclick="manejadorPaginas.finPresentacion()">
-            <a href="#"  onclick="return false"  class="small button fi-arrows-in " style="padding: 2px 10px 5px 10px ; font-size: 20px">
+            <a href="#"  onclick="return false"  class="small button fi-
+            s-in " style="padding: 2px 10px 5px 10px ; font-size: 20px">
               </a>
           </li>
 
@@ -536,8 +586,9 @@
 
            <li onclick="manejadorPaginas.inicioPlay()" >
             <a href="#"  onclick="return false;"  id="bton_presentacion_medio"  class="small button fi-play  " 
-              style="padding: 10px 20px 10px 20px ;  font-size: 35px;">
+              style="padding: 10px 20px 10px 20px ;  font-size: 35px; margin-bottom: 1px">
             </a>
+            <label id="contador_manejo_paginas" style="text-align: center;background-color:#D1D3CB"></label>
           </li>
           
           <li   onclick="manejadorPaginas.siguientePaginaAnimada(); manejadorPaginas.banderaPlay=false;">
@@ -550,7 +601,7 @@
         <h1></h1>
 
         <!-- herramienta -->
-           <ul id="herramientas_grupo_botones" class=" button-group [radius round]">               
+           <ul id="herramientas_grupo_botones" class=" button-group [radius round]" style="height: 40px">               
               <li>
                 
                 <div id="panel_editar_letras"  style="display:none" class="panel callout radius panel_grupo_botones">
@@ -617,38 +668,30 @@
 
 
               <li>
-                <a id="boton_color_grupo"   style="display:none"  class=" icon2 " title="editar letra" alt="editar letra">
-                   <i class="mi_icons fi-background-color size-60"></i>
+                <a id="boton_color_grupo"   style="display:none"  class=" icon2  mi_h1_" title="editar letra" alt="editar letra">
                 </a>                
               </li>
 
-
               <li>
-                <a id="boton_delete_grupo"    class=" icon2 " title="eliminar" alt="eliminar">
-                   <i class="mi_icons fi-x-circle size-60"></i>
-                </a>
-              </li> 
-
-              <li>
-                <a id="boton_capa" class=" icon2" title="capas" alt="capas">
-                  <i class="mi_icons2  fi-comments "></i>
+                <a id="boton_capa" class=" icon2  mi_h2_" title="capas" alt="capas">
+                  
                 </a>
                   
                   <ul id="subgrupo_botones_boton_capa" class="button-group [radius round]" style="width:40px"> 
                       <li>
-                        <a id="subgrupo_botones_boton_capa1"  onclick="elegirCapa(1)" class="icon2" title="eliminar" alt="eliminar">
+                        <a id="subgrupo_botones_boton_capa1"  onclick="elegirCapa(1)" class="icon2 sub_boton" title="1" alt="1">
                            <i class="mi_icons2">1</i>
                         </a>
                       </li> 
  
                       <li>
-                        <a id="subgrupo_botones_boton_capa2"  onclick="elegirCapa(2)" class=" icon2 " title="eliminar" alt="eliminar">
+                        <a id="subgrupo_botones_boton_capa2"  onclick="elegirCapa(2)" class=" icon2 sub_boton" title="2" alt="2">
                            <i class="mi_icons2 ">2</i>
                         </a>
                       </li> 
 
                       <li>
-                        <a id="subgrupo_botones_boton_capa3" onclick="elegirCapa(3)" class=" icon2 " title="eliminar" alt="eliminar">
+                        <a id="subgrupo_botones_boton_capa3" onclick="elegirCapa(3)" class=" icon2 sub_boton" title="3" alt="3">
                            <i class="mi_icons2 ">3</i>
                         </a>
                       </li> 
@@ -657,8 +700,16 @@
 
 
               <li>
-                <a id="herramientas_grupo" class=" main icon2 "  style="curso:move" title="" alt="">
-                  <i class="mi_icons step fi-widget " style="font-size: 35px;"></i>
+                <a id="boton_delete_grupo"    class=" icon2   mi_h3_" title="eliminar" alt="eliminar">
+                  
+                </a>
+              </li> 
+
+              
+
+              <li>
+                <a id="herramientas_grupo" class=" main icon2  mi_h4_ "  style="curso:move" title="" alt="">
+                 
                 </a>
               </li> 
           </ul>
@@ -766,18 +817,31 @@
         
 
         <!-- paginacion y nueva pagina -->
-        <div class="row pag_pag">
-          <div class="medium-3 large-3 columns" id="grupo_botones_transicion"> 
-              <ul class="pagination">
-                <li class="current"><a href="" id="bton_pag_transicion" class="botones_efectos_paginas  step fi-page-export" onclick="return false "  ></a></li>
+        <div class="row pag_pag" style=" padding:0px">
+          
+          <div class="medium-3 large-3 columns" id="grupo_botones_transicion" style=" padding:0px; height: 100%; background-color:rgba(252, 236, 42, 0.76)"> 
+              <ul class="pagination" style="margin-top: 2px;
+                    margin-left: 5px;">
+                <li class="current has-tip tip-top  " title="effect" data-tooltip >
+                  <a href="" id="bton_pag_transicion" class="botones_efectos_paginas  step  mi_p1" onclick="return false " 
 
-                <li class="current"><a href=""   id="bton_pag_nueva" class="botones_efectos_paginas step fi-page-add size-21 " onclick="return false " ></a></li>
+                  style="background:none; 
+                   "
+                
+             
+                 ></a></li>
 
-                 <li class="current"><a href=""   id="bton_pag_eliminar" class="botones_efectos_paginas step fi-page-delete size-21 " onclick="return false " ></a></li>
+                
+                 <li class="current has-tip tip-top" title="delete" data-tooltip>
+                  <a href=""   id="bton_pag_eliminar" class="botones_efectos_paginas step mi_p2 size-21 " onclick="return false " ></a></li>
+
+                  <li class="current has-tip tip-top" title="add" data-tooltip >
+                  <a href=""   id="bton_pag_nueva" class="botones_efectos_paginas step mi_p3" onclick="return false " ></a></li>
+
             </ul>
           </div>
 
-          <div class="medium-9 large-9 columns">      
+          <div class="medium-9 large-9 columns" style=" padding:0px; height: 100%; background-color:#FFC737">      
              <ul class="pagination" id="html_mi_paginacion_paginas">
              
             </ul>
@@ -828,6 +892,7 @@
       },700);
     </script>
 <script src="js/interfaz.js"></script>
+<script src="js/imagenes.js"></script>
    
      <script src="js/paginas.js"></script>
    

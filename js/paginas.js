@@ -21,6 +21,10 @@ function Pagina(){
 		   ,fondoPresentacion:"rgba(24, 50, 41, 0.5)"//color de fondo en ele momento de la presentcion
 		    ,banderaPasandoPagina:false // false si no esta en proceso de transicion depasar una pagina con animacion , y ture si 
 		    ,banderaHabilitaEdicion:true
+		    ,contadorMilise:10
+		    ,MAXIMO_MILI:10
+
+
 			/*************** funciones *****************/
 			,nueva:function(){
 				this.idPagina++;
@@ -64,7 +68,7 @@ function Pagina(){
 			,htmlPaginado:function()
 			{
 
-				var html=" <li class='arrow unavailable'><a href='' onclick='return false '>&laquo;</a></li> ";
+				var html=" <li class='arrow_1 unavailable'></li> ";
 
 				for(var i=0; i< this.paginas.length ; i++)
 					{
@@ -78,7 +82,7 @@ function Pagina(){
 						}
 					}
 
-				html+="<li class='arrow'><a href='' onclick='return false '>&raquo;</a></li>";
+				html+="<li class='arrow_2'></li>";
 
 				this.$htmlPaginado.html(html);
 
@@ -258,34 +262,55 @@ function Pagina(){
 		  			this.intervaloPlay= null;
 
 		  		}
+
 		  		selft.banderaPlay=false;
 
-		  		this.actualizaBotonesPresentacion();
+		  		selft.actualizaBotonesPresentacion();
 
 		  	}
 		  	else {
 
 		  		selft.banderaPlay=true;
 
-			  	this.intervaloPlay =setInterval(function(){
-			  	
+		  		selft.contadorMilise=parseInt(selft.MAXIMO_MILI);
+
+
+			  	selft.intervaloPlay =setInterval(function(){
+
+				  	
+				  	selft.contadorMilise=selft.contadorMilise-1;
+				  	selft.actualizaBotonesPresentacion();
+				  	
+				  
+
 			  		if(selft.banderPresentacion &&  selft.banderaPlay && selft.posicionActual+1<selft.paginas.length)
 				  		{
-				  		selft.banderaPlay=true;
-				  		selft.siguientePaginaAnimada();
+				  			if(selft.contadorMilise==0)
+				  			{
+				  				selft.banderaPlay=true;
+				  				selft.siguientePaginaAnimada();
+
+				  				selft.contadorMilise=parseInt(selft.MAXIMO_MILI);
+				  			}
+
+				  	
 			  			}
 			  			else{
 	 		
-			  			selft.banderaPlay=false;
+				  			selft.banderaPlay=false;
 
-			  			//	selft.siguientePaginaAnimada();
+				  			//	selft.siguientePaginaAnimada();
 
-				  		clearInterval(selft.intervaloPlay);
-				  		selft.intervaloPlay=null;
+					  		clearInterval(selft.intervaloPlay);
+					  		selft.intervaloPlay=null;
+					  		selft.actualizaBotonesPresentacion();
+
+
+
 
 			  			}
 			  		
-			  		}, 5000);
+			  		}, 500);
 
 
 			  	this.actualizaBotonesPresentacion();
@@ -321,11 +346,13 @@ function Pagina(){
 		  	{
 		  		$("#bton_presentacion_medio").removeClass("fi-play");
 		  		$("#bton_presentacion_medio").addClass("fi-pause");
+		  		$("#contador_manejo_paginas").html(this.contadorMilise);
 		  				  		
 		  	}
 		  	else{
 		  		$("#bton_presentacion_medio").addClass("fi-play");
 		  		$("#bton_presentacion_medio").removeClass("fi-pause");
+		  		$("#contador_manejo_paginas").html("");
 		  	}
 
 		  }

@@ -2573,7 +2573,8 @@ ul.pagination {
     ul.pagination li a {
       display: block;
       padding: 0.0625rem 0.625rem 0.0625rem;
-      color: #999999;
+      color: #1A1515;
+      font-weight:bold;
       border-radius: 3px; }
     ul.pagination li:hover a,
     ul.pagination li a:focus {
@@ -2584,7 +2585,7 @@ ul.pagination {
     ul.pagination li.unavailable:hover a, ul.pagination li.unavailable a:focus {
       background: transparent; }
     ul.pagination li.current a {
-      background: #008cba;
+      background: #E2452D;
       color: white;
       font-weight: bold;
       cursor: default; }
@@ -4230,7 +4231,7 @@ ul.off-canvas-list {
     max-width: 800px; }
 
 table {
-  background: white;
+  background: #F8F9D9;
   margin-bottom: 1.25rem;
   border: solid 1px #dddddd; }
   table thead,
@@ -4251,7 +4252,7 @@ table {
     font-size: 0.875rem;
     color: #222222; }
   table tr.even, table tr.alt, table tr:nth-of-type(even) {
-    background: #f9f9f9; }
+    background: #F8F9D9; }
   table thead tr th,
   table tfoot tr th,
   table tbody tr td,

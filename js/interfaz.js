@@ -114,7 +114,8 @@ function ajustaTamPanel(){
 		
 	$("#panel_texto_contenido").height( $(window).height() -  $("#panel_texto_contenido").offset().top-60);
 	
-
+	$("#panel_imagenes_contenido").height( $(window).height() -  $("#panel_imagenes_contenido").offset().top-60);
+	
 }
 
 
@@ -270,3 +271,51 @@ function generarHmtlMarcos(cantidadFila, cantidad){
 
 
 $("#imagenes_marcos").html(generarHmtlMarcos(2,12));
+
+
+
+
+
+
+
+
+
+/******************
+generar el htm de las imagenes
+********************/
+function generarHmtlImagenes(cantidadFila, lista){
+
+	var html=""
+
+	for(var i=1; i<lista.length; i++)
+	{
+
+
+		 if((i)%cantidadFila==1)
+        {
+        	html+=" <tr> ";
+        }
+
+		html+=" <th> "
+          +"                <div class=\"elemento_menu1 imagen_fondo\" "           
+          +"                 style=\"background-image: url(img_ext/"+lista[i]+"); \"  "
+          +"                 data-elemento=\"<div   data-tipo='tipo1'  "
+
+          +" 				 class='imagen_fondo' " 
+          +"				 data-imagen='img_ext/"+lista[i]+"'  "
+          +"                style='background:url(img_ext/"+lista[i]+");  background-size: 100%; height:100px ; width:100px'  ></div>\"> "
+          +"               </div>  "                       
+          +"              </th>  ";
+
+
+        if((i)%cantidadFila==0)
+        {
+        	html+=" </tr> ";
+        }
+
+
+	}
+
+
+	return html;
+}

@@ -1,7 +1,7 @@
 .menu1{
 box-shadow: 1px 0 5px #333;
-border-right: 5px solid #cdcdcd;
-background: #D9D9D9;
+border-right: 7px solid #00352D;
+background: #F8F9D9;
 text-align: center;
 
 }
@@ -207,48 +207,53 @@ background: rgba(255,255,255,0.02);
 	display: inline-block;
 	position: absolute;
 	z-index: 1000;
+	background-color: rgb(0, 141, 131);
 }
 
 #herramientas_grupo_botones .icon2 ,#botones_principales .icon2 {
-	border: 1px solid #635C5C;
+	
 	display: block;
+	/*
+	border: 1px solid #635C5C;
 	background-image: -webkit-gradient(linear,left top,left bottom,from(#FFFFFF),to(#BBC2F5));
 	background-image: -moz-linear-gradient(top,#FBFBFB,#ECECEC);
-	/*position: absolute;*/
-	width: 32px;
-	height: 32px;
-	border-radius: 6px;
-	margin: 5px;
-	padding: 0;
+	position: absolute;*/
+	width: 38px;
+	height: 38px;
+	
+	margin: 1px;
+	padding: 3;
 	-webkit-transition: top .30s ease-in-out;
 	-moz-transition: top .30s ease-in-out;
 	 transition: top .30s ease-in-out; 
-	box-shadow: 2px 2px 4px grey;
+	/*box-shadow: 2px 2px 4px grey;*/
 	overflow: hidden;
 	text-align: center;
 }
 
 
 .active_icons{
-	background: #635C5C !important;
-	opacity: 0.7;
+	background: #007D6D !important;
 	color: black;
 }
 
 
 
 
-#herramientas_grupo_botones .icon2:hover  ,#botones_principales .icon2:hover{
+#herramientas_grupo_botones .icon2:hover  {
 	cursor: pointer;
+	/*
 	background-image: -webkit-gradient(linear,left top,left bottom,from(#BEBEBE),to(#BBC2F5));
-	background-image: -moz-linear-gradient(top,#AEAEAE,#ECECEC);
+	background-image: -moz-linear-gradient(top,#AEAEAE,#ECECEC);*/
 	text-decoration: none;
+	background-color: #007D6D;
+	
 }
 
 
  #herramientas_grupo_botones .main  {
-	width: 40px;
-	height: 40px;
+	width: 20px;
+	height: 38px;
 	margin: 0;
 	cursor: move !important;
 }
@@ -264,15 +269,21 @@ background: rgba(255,255,255,0.02);
 .mi_icons2{
 
 	font-size: 30px;
+	color:#F0F0EE;
+	
+
 	/* overflow: hidden; */
 	line-height: 30px;
 }
 
 
+.sub_boton{
+	background: #008D83;
+}
 
 /**** footer menu */
 .mi_footer{
-background-color: rgba(56,60,76,0.66);
+background-color: rgba(246, 236, 211, 0.75);;
  position:fixed;
    left:0px;
    bottom:0px;
@@ -286,13 +297,13 @@ background-color: rgba(56,60,76,0.66);
 
 
 .pag_borde{
- height: 3px;
- background-color: rgba(31,35,48,0.43);
+ height: 1px;
+ background-color: rgba(255, 199, 55, 0.81);
  }
 
 .pag_transicion{
  height: 65px;
-border: 1px solid rgba(31,35,48,0.43);
+border: 1px solid rgba(255, 184, 0, 0.48);
 }
 
 .pag_pag{
@@ -324,7 +335,7 @@ panel principal
 **/
 
 .panel_principal{
-	background-color: rgba(56,60,76,0.88);
+	/*background-color: rgba(56,60,76,0.88);*/
  	position:fixed;
    left:0px;
    top:0px;
@@ -384,6 +395,7 @@ panel principal
 	box-shadow: inset 0 0 30px #444;
 	cursor: default;
 	border: 3px solid #A29EA2;
+	opacity: 0.6;
 } 
 
 #fila_1panel .button:hover {
@@ -653,14 +665,16 @@ margin: 0 0 1px 0;
 }
 
 .mi_lista .th{
-	border: solid 4px #291650;	
+	border: solid 4px #23A299;
+	border-radius: 10px;	
 	width: 38px;
 	height: 38px;
 	cursor: pointer;
 }
 
 .mi_lista .th_activo{
-	background: #38136F;
+	background: #FDFDFD;
+	border: solid 4px #E2E4E4 !important;
 }
 
 
@@ -673,9 +687,11 @@ margin: 0 0 1px 0;
 	top: -20px;
 }
 
+
+
 .mi_lista .label_transicion{
 	text-align: center;
-	color: #D1D2D6;
+	color: #2C3763;
 	/* font-weight: bold; */
 	font-weight: bold;
 	font-size: 12px;
@@ -698,6 +714,318 @@ table tr th, table tr td {
 
 }
 
+
+
+#bton_imagene_externa{
+	border-radius: 30px;
+}
 body{
  overflow: hidden;
+}
+
+
+
+
+#boton_esecenario_1{
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico1.png');
+	background-repeat: no-repeat no-repeat; 
+}
+
+/********** fondo de botones ****************/
+#boton_esecenario_1:hover{
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico1_o.png');
+	background-repeat: no-repeat; 
+}
+
+div[data-mipanel='panel_personajes']{
+
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico2.png');
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+
+div[data-mipanel=panel_personajes]:hover{
+
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico2_o.png');
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+
+
+
+div[data-mipanel="panel_texto"]{
+
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico3.png');
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+
+div[data-mipanel="panel_texto"]:hover{
+
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico3_o.png');
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+
+
+
+div[data-mipanel="panel_imagenes"]{
+
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico4.png');
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+
+div[data-mipanel="panel_imagenes"]:hover{
+
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico4_o.png');
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+
+
+
+div[data-mipanel="panel_marcos"]{
+
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico5.png');
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+
+div[data-mipanel="panel_marcos"]:hover{
+
+	background-size: 100% 100%;
+	background-image: url('../img/icon/ico5_o.png');
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+#bton_guardar{
+	box-shadow:none !important;
+	border:none !important;
+	background-size: 100% 100%;
+	background-image: url('../img/icon/bton1.png') !important;
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+
+#bton_guardar:hover{
+	background-size: 100% 100%;
+	background-image: url('../img/icon/bton1_o.png') !important;
+	background-repeat: no-repeat no-repeat; 
+
+}
+
+#ver_presentacion{
+	box-shadow:none !important;
+	border:none !important;
+	background-size: 100% 100%;
+	background-image: url('../img/icon/bton2.png')  !important;
+	background-repeat: no-repeat no-repeat; 
+}
+
+
+#ver_presentacion:hover{
+	background-size: 100% 100%;
+	background-image: url('../img/icon/bton2_o.png')!important;
+	background-repeat: no-repeat no-repeat ; 
+}
+
+
+/*******scrolll **************/
+#panel_marcos_contenido::-webkit-scrollbar-thumb,
+#panel_imagenes_contenido::-webkit-scrollbar-thumb,
+#panel_texto_contenido::-webkit-scrollbar-thumb,
+#panel_personajes_contenido::-webkit-scrollbar-thumb,
+#panel_escenario_contenido::-webkit-scrollbar-thumb{
+background-color:#23A299;
+border-radius:10px;
+}
+
+#panel_marcos_contenido::-webkit-scrollbar-thumb:hover,
+#panel_imagenes_contenido::-webkit-scrollbar-thumb:hover,
+#panel_texto_contenido::-webkit-scrollbar-thumb:hover,
+#panel_personajes_contenido::-webkit-scrollbar-thumb:hover,
+#panel_escenario_contenido::-webkit-scrollbar-thumb:hover{
+background-color:#41D6CB;
+border:1px solid #333333;
+}
+
+#panel_marcos_contenido::-webkit-scrollbar-thumb:active,
+#panel_imagenes_contenido::-webkit-scrollbar-thumb:active,
+#panel_texto_contenido::-webkit-scrollbar-thumb:active,
+#panel_personajes_contenido::-webkit-scrollbar-thumb:active,
+#panel_escenario_contenido::-webkit-scrollbar-thumb:active{
+background-color:#1A7770;
+border:1px solid #333333;
+} 
+
+#panel_marcos_contenido::-webkit-scrollbar,
+#panel_imagenes_contenido::-webkit-scrollbar,
+#panel_texto_contenido::-webkit-scrollbar,
+#panel_personajes_contenido::-webkit-scrollbar,
+#panel_escenario_contenido::-webkit-scrollbar{
+width:16px;
+background-color:#cccccc;
+} 
+
+
+.mi_p1{
+
+	background-image: url('../img/icon/p1.png') !important; 
+	background-repeat: no-repeat no-repeat !important;
+	background-size: 100% 100% !important;
+	width: 35px;
+	height: 35px;
+}
+
+.mi_p1:hover{
+
+	background-image: url('../img/icon/p1_o.png') !important; 
+	
+}
+
+
+.mi_p2{
+
+	background-image: url('../img/icon/p2.png') !important; 
+	background-repeat: no-repeat no-repeat !important;
+	background-size: 100% 100% !important;
+	width: 35px;
+	height: 35px;
+}
+
+.mi_p2:hover{
+
+	background-image: url('../img/icon/p2_o.png') !important; 
+	
+}
+
+
+.mi_p3{
+
+	background-image: url('../img/icon/p3.png') !important; 
+	background-repeat: no-repeat no-repeat !important;
+	background-size: 100% 100% !important;
+	width: 35px;
+	height: 35px;
+}
+
+.mi_p3:hover{
+
+	background-image: url('../img/icon/p3_o.png') !important; 
+	
+}
+
+
+
+/********************/
+.arrow_1{
+
+	background-image: url('../img/icon/ant.png') !important; 
+	background-repeat: no-repeat no-repeat !important;
+	background-size: 100% 100% !important;
+	width: 32px;
+	height: 40px;
+
+}
+
+.arrow_1:hover{
+
+	background-image: url('../img/icon/ant_o.png') !important; 
+
+}
+
+
+.arrow_2{
+
+	background-image: url('../img/icon/sig.png') !important; 
+	background-repeat: no-repeat no-repeat !important;
+	background-size: 100% 100% !important;
+	width: 32px;
+	height: 40px;
+
+}
+
+.arrow_2:hover{
+
+	background-image: url('../img/icon/sig_o.png') !important; 
+
+}
+
+
+/*********** herramientas *********/
+.mi_h1_{
+	background-image: url('../img/icon/h1.png') !important; 
+	background-repeat: no-repeat no-repeat !important;
+	background-size: 100% 100% !important;
+	width: 38px;
+	height: 38px;
+}
+
+.mi_h1_:hover
+{
+	background-image: url('../img/icon/h1_o.png') !important; 
+	
+}
+
+.mi_h2_{
+	background-image: url('../img/icon/h2.png') !important; 
+	background-repeat: no-repeat no-repeat !important;
+	background-size: 100% 100% !important;
+	width: 38px;
+	height: 38px;
+}
+
+.mi_h2_:hover
+{
+	background-image: url('../img/icon/h2_o.png') !important; 
+	
+}
+
+
+.mi_h3_{
+	background-image: url('../img/icon/h3.png') !important; 
+	background-repeat: no-repeat no-repeat !important;
+	background-size: 100% 100% !important;
+	width: 38px;
+	height: 38px;
+}
+
+.mi_h3_:hover
+{
+	background-image: url('../img/icon/h3_o.png') !important; 
+	
+}
+
+
+.mi_h4_{
+	background-image: url('../img/icon/h4.png') !important; 
+	background-repeat: no-repeat no-repeat !important;
+	background-size: 100% 100% !important;
+	width: 20px;
+	height: 38px;
+}
+
+.mi_h4_:hover
+{
+	background-image: url('../img/icon/h4_o.png') !important; 
+	
 }
